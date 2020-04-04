@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DashboardContainer = styled.div` 
+export const PanelClientsContainer = styled.div` 
     background-color: #f5f7fb;
     padding-top: 2rem;
     height: 100vh;
