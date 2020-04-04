@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 
 class Video extends Model {
-  static init(sequelize) {
+  static init(connection) {
     super.init({
       title: DataTypes.STRING,
       link: DataTypes.STRING,
@@ -10,7 +10,7 @@ class Video extends Model {
       duration: DataTypes.INTEGER,
       status: DataTypes.BOOLEAN,
       free: DataTypes.BOOLEAN
-    }, { sequelize });
+    }, { sequelize: connection });
   }
 };
 
