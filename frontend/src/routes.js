@@ -1,5 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { 
+    BrowserRouter, 
+    Route, 
+    Switch, 
+    Redirect, 
+    useLocation 
+} from 'react-router-dom';
 
 import Home from './pages/site/Home';
 import Login from './pages/site/Login';
@@ -7,21 +13,40 @@ import Register from './pages/site/Register';
 import Forgot from './pages/site/Forgot';
 import Courses from './pages/site/Courses';
 
-import Panel from './pages/panel/Panel';
+import Dashboard from './pages/panel/Dashboard';
+import PanelLogin from './pages/panel/PanelLogin';
+import Error404 from './pages/panel/404';
 
 import GlobalStyle from './GlobalStyles';
 
 export default function Routes() {
+
+    const token = localStorage.getItem('painel-token') || false;
+
     return (
         <BrowserRouter>
             <Switch>
+                
+                {/* Website  */}
                 <Route path="/" exact component={Home}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/cadastro" component={Register}/>
                 <Route path="/esqueci-senha" component={Forgot}/>
                 <Route path="/cursos" component={Courses}/>
-                
-                <Route path="/painel" component={Panel}/>
+
+                {/* Panel  */}
+                {/* <Route path="/painel" exact component={Dashboard}  
+                    render={ (token) => 
+                        token ?  
+                        <Redirect to="/painel" /> :
+                        <Redirect to={{ pathname: "/painel/login" }} /> 
+                    }
+                                
+                /> */}
+                <Route path="/painel" exact component={Dashboard}/>
+                <Route path="/painel/login" component={PanelLogin}/>
+                <Route path="*" component={Error404} />
+                 
             </Switch>
 
             <GlobalStyle />

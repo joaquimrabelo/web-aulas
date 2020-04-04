@@ -9,15 +9,15 @@ import mainImg from '../../../assets/main.png'
 export default function Home() {
     return(
         <HomeContainer> 
-            <div class="bg-block">
-                <div class="bg"></div>
+            <div className="bg-block">
+                <div className="bg"></div>
             </div>
 
             <Container>
                 <Row className="main-content">
                     <Col sm={6} >
                         <Row>
-                            <Col>
+                            <Col className="main-title">
                                 <h1><span>Plataforma de</span> Cursos Online </h1>
                                 <p>Texto sobre a Plataforma de Cursos Online</p>
                             </Col>

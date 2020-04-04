@@ -31,9 +31,10 @@ export const HomeContainer = styled.div`
     
 
     @media(min-width: 600px) {
-      
-        text-align: left;
-
+        .main-title {
+            text-align: left;
+        }
+           
         img {
             margin-top: 0;
         }

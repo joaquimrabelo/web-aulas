@@ -4,31 +4,48 @@ import { useHistory } from 'react-router-dom';
 import { PanelContainer } from './styles.js';
 import { Container, Row, Col } from 'react-grid-system';
 
-export default function Panel() {
+import api from '../../../services/api';
+
+export default function PanelLogin() {
+
+    const history = useHistory();
+    const token = localStorage.getItem('painel-token') || false;
+    if(token) {
+        history.push('/painel');
+    }
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const history = useHistory();
+    const [loginError, setLoginError] = useState(false);
+    const [loginErrorMessage, setLoginErrorMessage] = useState('');
 
     async function handleLogin(e) {
         e.preventDefault();
-        console.log("handle login")
 
-        /* try {
-            const response = await api.post('sessions', { id });
+        try {
+            const response = await api.post('painel/login', { email, password });
 
-            localStorage.setItem('ongId', id);
-            localStorage.setItem('ongName', response.data.name);
-
-            history.push('/profile');
+            if (response.data.auth) {
+                localStorage.setItem('painel-token', response.data.token)
+                history.push('/painel');
+            }   
 
         } catch (error) {
-            alert('Falha no login, tente novamente.')
-        } */
+
+            if(error.response && error.response.data) {
+                setLoginError(true);
+                setLoginErrorMessage(error.response.data.message)
+            }
+        }  
 
     }
 
+    function AlertError() {
+        if(loginError) {
+            return <div className="alert-panel">{loginErrorMessage}</div>
+        }
+        return null;
+    }
 
     return (
         <PanelContainer>
@@ -41,8 +58,8 @@ export default function Panel() {
                 </Row>
                 <Row>
                     <Col >
-
                         <section className="content-form">
+                            <AlertError loginError={true} />
 
                             <form onSubmit={handleLogin}>
                                 <input
@@ -51,6 +68,7 @@ export default function Panel() {
                                     onChange={e => setEmail(e.target.value)}
                                 />
                                 <input
+                                type="password"
                                     placeholder="Sua senha"
                                     value={password}
                                     onChange={e => setPassword(e.target.value)}

@@ -86,18 +86,15 @@ export default function Register() {
 
                             <Link to="/" className="clean-link">
                                 <FiArrowLeft className="icon" />
-                                        Voltar para a Home
-                                    </Link>
+                                Voltar para a Home
+                           </Link>
 
                             <Link to="/login" className="clean-link">
+                                <FiLogIn className="icon" />
                                 Fazer login
-                                        <FiLogIn className="icon" />
                             </Link>
 
-                        </div>
-
-
-                        
+                        </div>                        
 
                     </Col>
                 </Row>

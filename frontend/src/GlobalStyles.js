@@ -86,9 +86,11 @@ const GlobalStyle = createGlobalStyle`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-direction: column;
 
         @media(min-width: 600px) {
              padding: 50px;
+
         }
     }
     
@@ -104,6 +106,11 @@ const GlobalStyle = createGlobalStyle`
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.0125), 0 1px 1px rgba(0,0,0,0.05);
         border-top-width: .0625rem;
         border-bottom-width: calc(.2rem + .0625rem);
+        text-decoration: none;
+
+        &:hover {
+            color:#fff;
+        }
     }
     .link:link, 
     .link:visited {
