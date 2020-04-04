@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import { FiArrowLeft, FiLogIn } from 'react-icons/fi';
 
 import { Container, Row, Col } from 'react-grid-system';
 
@@ -91,7 +91,7 @@ export default function Register() {
 
                             <Link to="/login" className="clean-link">
                                 Fazer login
-                                        <FiArrowRight className="icon" />
+                                        <FiLogIn className="icon" />
                             </Link>
 
                         </div>

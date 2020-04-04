@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-grid-system';
 
 import { HomeContainer } from './styles';
-import mainImg from '../../assets/main.png'
+import mainImg from '../../../assets/main.png'
 
 
 export default function Home() {
