@@ -15,6 +15,8 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --primary-color: #0c5a9a; 
         --neutral-color: #f5f1ed;
+        --light-color: #f1f1f1;
+
         --box-shadow: 0 8px 20px 0 rgba(0,0,0,.1);
     }
     ::selection {
@@ -56,21 +58,22 @@ const GlobalStyle = createGlobalStyle`
     }
     form input {
         width: 100%;
-        height: 60px;
+        height: 54px;
         color: #333;
-        border: 1px solid #dcdce6;
+        border: 1px solid transparent;
         border-radius: 8px;
         padding: 0 24px;
         margin: .3rem 0;
         flex-direction: column;
+        background-color: var(--light-color);
     }
     form textarea {
         width: 100%;
         min-height: 140px;
         resize: vertical;
-        height: 60px;
+        height: 54px;
         color: #333;
-        border: 1px solid #dcdce6;
+        border: 1px solid transparent;
         border-radius: 8px;
         padding: 16px 24px;
         line-height: 24px;
@@ -78,9 +81,8 @@ const GlobalStyle = createGlobalStyle`
     .content-form {
         width: 100%;
         padding: 30px;
-        box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--box-shadow);
         border-radius: 8px;
-
         display: flex;
         justify-content: space-between;
         align-items: center;
