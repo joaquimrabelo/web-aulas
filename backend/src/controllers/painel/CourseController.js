@@ -4,29 +4,40 @@ module.exports = {
   async index(request, response) {
 
     try {
-      const curso = await Course.findAll(); 
-      return response.send({'couse': curso});
+      const courses = await Course.findAll(); 
+      return response.json({'courses': courses});
     } catch (error) {
-      console.error(error);
+      return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados dos cursos.'});
     }
-
-    return response.send({'couse': curso});
+  },
+  
+  async show(request, response) {
+    const { id } = request.params;
+    
+    try {
+      const course = await Course.findByPk(id, {
+        include: [
+          { association: 'videos', through: { attributes: [] } },
+          { association: 'files', through: { attributes: [] } },
+        ],
+      }); 
+      return response.json(course);
+    } catch (error) {
+      return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados do curso.'});
+    }
   },
 
   async store(request, response) {
     const { title, description, validity, price, photo } = request.body;
 
-    const curso = await Course.create({ title, description, validity, price, photo });
-
-    return response.send(curso);
+    try {
+      const course = await Course.create({ title, description, validity, price, photo });
+      return response.json({'course': course});
+    } catch (error) {
+      return response.status(400).json({ auth: true, message: 'Não foi possível inserir o curso.'});
+    }
   },
 
-  async show(request, response) {
-    const { id } = request.params;
-
-    const curso = await Course.findByPk(id); 
-
-    return response.send(curso);
-  }
+  
 
 }

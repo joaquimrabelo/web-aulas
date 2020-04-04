@@ -13,11 +13,24 @@ class Course extends Model {
       promo_price: DataTypes.DECIMAL
     }, { sequelize: connection });
   }
+
+  static associate(models) {
+    this.belongsToMany(models.Video, {
+      foreignKey: 'CourseId',
+      through: 'CourseVideos',
+      as: 'videos'
+    });
+    this.belongsToMany(models.File, {
+      foreignKey: 'CourseId',
+      through: 'CourseFiles',
+      as: 'files'
+    });
+  }
 };
 
-Course.associate = function(models) {
+/* Course.associate = function(models) {
   Course.belongsToMany(models.Video, { through: 'CourseVideo' })
   Course.belongsToMany(models.File, { through: 'CourseFile' })
-};
+}; */
 
 module.exports = Course;

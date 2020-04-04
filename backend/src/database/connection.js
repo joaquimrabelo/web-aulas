@@ -6,11 +6,14 @@ const Course = require('../models/course');
 const Video = require('../models/video');
 const File = require('../models/file');
 
-const sequelize = new Sequelize(dbConfig);
+const connection = new Sequelize(dbConfig);
 
-User.init(sequelize);
-Course.init(sequelize);
-Video.init(sequelize);
-File.init(sequelize);
+User.init(connection);
+Course.init(connection);
+Video.init(connection);
+File.init(connection);
 
-module.exports = sequelize;
+Course.associate(connection.models);
+//Video.associate(connection.models);
+
+module.exports = connection;
