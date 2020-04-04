@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Files', {
+    return queryInterface.createTable('files', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -27,17 +27,17 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: 1
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Files');
+    return queryInterface.dropTable('files');
   }
 };

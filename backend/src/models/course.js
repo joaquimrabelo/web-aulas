@@ -11,26 +11,21 @@ class Course extends Model {
       validity: DataTypes.INTEGER,
       price: DataTypes.DECIMAL,
       promo_price: DataTypes.DECIMAL
-    }, { sequelize: connection });
+    }, { sequelize: connection, modelName: 'courses' });
   }
 
   static associate(models) {
-    this.belongsToMany(models.Video, {
-      foreignKey: 'CourseId',
-      through: 'CourseVideos',
+    this.belongsToMany(models.videos, {
+      foreignKey: 'course_id',
+      through: 'courses_videos',
       as: 'videos'
     });
-    this.belongsToMany(models.File, {
-      foreignKey: 'CourseId',
-      through: 'CourseFiles',
+    this.belongsToMany(models.files, {
+      foreignKey: 'course_id',
+      through: 'courses_files',
       as: 'files'
     });
   }
 };
-
-/* Course.associate = function(models) {
-  Course.belongsToMany(models.Video, { through: 'CourseVideo' })
-  Course.belongsToMany(models.File, { through: 'CourseFile' })
-}; */
 
 module.exports = Course;

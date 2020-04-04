@@ -7,6 +7,7 @@ module.exports = {
       const courses = await Course.findAll(); 
       return response.json({'courses': courses});
     } catch (error) {
+      console.log(error);
       return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados dos cursos.'});
     }
   },
@@ -23,6 +24,7 @@ module.exports = {
       }); 
       return response.json(course);
     } catch (error) {
+      console.log(error);
       return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados do curso.'});
     }
   },

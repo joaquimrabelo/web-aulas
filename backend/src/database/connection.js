@@ -14,6 +14,5 @@ Video.init(connection);
 File.init(connection);
 
 Course.associate(connection.models);
-//Video.associate(connection.models);
 
 module.exports = connection;

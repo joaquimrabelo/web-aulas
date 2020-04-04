@@ -7,12 +7,8 @@ class File extends Model {
       description: DataTypes.TEXT,
       file: DataTypes.STRING,
       free: DataTypes.BOOLEAN
-    }, { sequelize: connection});
+    }, { sequelize: connection, modelName: 'files'});
   }
-};
-
-File.associate = function(models) {
-  Course.belongsToMany(models.Course, { through: 'CourseFile' })
 };
 
 module.exports = File;

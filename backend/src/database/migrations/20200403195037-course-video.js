@@ -2,29 +2,29 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('CourseVideos', {
-      CourseId: {
+    return queryInterface.createTable('courses_videos', {
+      course_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        references: { model: 'Courses', key: 'id' },
+        references: { model: 'courses', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      VideoId: {
+      video_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        references: { model: 'Videos', key: 'id' },
+        references: { model: 'videos', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
       ordem: {
         type: Sequelize.INTEGER
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
@@ -32,6 +32,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('CourseVideos');
+    return queryInterface.dropTable('courses_videos');
   }
 };
