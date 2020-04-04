@@ -3,8 +3,10 @@ import { Redirect, useHistory } from 'react-router-dom';
 
 import { DashboardContainer } from './styles.js';
 import { Container, Row, Col } from 'react-grid-system';
+
+import HeaderContent from '../Components/Header';
 import NavContent from '../Components/Nav';
-import { AccountDropdown, Card, StampCard } from 'tabler-react';
+import { StampCard } from 'tabler-react';
 
 import api from '../../../services/api';
 
@@ -16,7 +18,7 @@ export default function Dashboard() {
         history.push('/painel/login');
     }
 
-/*     try {
+    /*     try {
         const response = api.get('painel/perfil', { 
             headers: { 'X-Access-Token': token },
             
@@ -48,36 +50,18 @@ export default function Dashboard() {
         <DashboardContainer>
             <Container>
 
-                <Row>
-                    <Col sm={10}>
-                        <h2>LOGO</h2>
-                    </Col>
-                    <Col sm={2}>
-                        <AccountDropdown
-                            avatarURL="/"
-                            name="Carolina"
-                            description="Administrador"
-                            options={[
-                                { icon: "user", value: "Meu perfil", to: "/perfil"},
-                                { icon: "settings", value: "Configurações", to: "/settings" },
-                                "divider",
-                                { icon: "log-out", value: "Sair", to: {handleLogout}},
-                            ]}
-                        />
-                    
-                    </Col>
-                </Row>
+                <HeaderContent />
 
                 <Row>
-                    <Col >
+                    <Col>
                         <NavContent />
                     </Col>
                 </Row>
 
                 <Row>
                     <Col>
-                            <h1>Dashboard</h1>
-                            {/* <button onClick={handleLogout}>Sair</button> */}
+                        <h1>Dashboard</h1>
+                        {/* <button onClick={handleLogout}>Sair</button> */}
                     </Col>
                 </Row>
 

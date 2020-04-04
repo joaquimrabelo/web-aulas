@@ -15,6 +15,10 @@ import Courses from './pages/site/Courses';
 
 import Dashboard from './pages/panel/Dashboard';
 import PanelLogin from './pages/panel/PanelLogin';
+import PanelCourses from './pages/panel/Courses';
+import PanelClients from './pages/panel/Clients';
+import PanelVideos from './pages/panel/Videos';
+import PanelFiles from './pages/panel/Files';
 import Error404 from './pages/panel/404';
 
 import GlobalStyle from './GlobalStyles';
@@ -45,6 +49,10 @@ export default function Routes() {
                 /> */}
                 <Route path="/painel" exact component={Dashboard}/>
                 <Route path="/painel/login" component={PanelLogin}/>
+                <Route path="/painel/cursos" component={PanelCourses}/>
+                <Route path="/painel/clientes" component={PanelClients}/>
+                <Route path="/painel/videos" component={PanelVideos}/>
+                <Route path="/painel/arquivos" component={PanelFiles}/>
                 <Route path="*" component={Error404} />
                  
             </Switch>
