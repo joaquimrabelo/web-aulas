@@ -65,15 +65,15 @@ export default function Login() {
 
                         <div className="clean-links-block">
                            
-                                <Link to="/esqueci-senha" className="clean-link">
-                                    <FiArrowLeft className="icon" />
-                                    Esqueci minha senha
-                                </Link>
-                          
-                                <Link to="/cadastro" className="clean-link">
-                                    <FiLogIn className="icon" />
-                                    Não tenho cadastro
-                                </Link>
+                            <Link to="/esqueci-senha" className="clean-link">
+                                <FiArrowLeft className="icon" />
+                                Esqueci minha senha
+                            </Link>
+                        
+                            <Link to="/cadastro" className="clean-link">
+                                <FiLogIn className="icon" />
+                                Não tenho cadastro
+                            </Link>
                            
                         </div>
 

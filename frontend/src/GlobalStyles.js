@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font: 400 16px Roboto, sans-serif;
         color: #666;
-        background-color: #f0f0f5;
+        background-color: #fff;
         -webkit-font-smoothing: antialised;
     }
 
@@ -77,13 +77,17 @@ const GlobalStyle = createGlobalStyle`
     }
     .content-form {
         width: 100%;
-        padding: 50px;
+        padding: 30px;
         box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
 
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media(min-width: 600px) {
+             padding: 50px;
+        }
     }
     
     /* Buttons */
@@ -130,7 +134,7 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         margin-top: 40px;
         color: #41414d;
-        font-size: 18px;
+        font-size: 14px;
         text-decoration: none;
         font-weight: 500;
         transition: opacity .2s;
@@ -152,6 +156,9 @@ const GlobalStyle = createGlobalStyle`
     @media(min-width: 600px) {
         h1 {
             font-size: 3.5rem;
+        }
+        .clean-link {
+            font-size: 18px;
         }
     }
    

@@ -12,7 +12,7 @@ export default function Forgot() {
 
     const history = useHistory();
 
-    async function handleLogin(e) {
+    async function handleForgot(e) {
         e.preventDefault();
         console.log("handle login")
 
@@ -45,7 +45,7 @@ export default function Forgot() {
 
                         <section className="content-form">
 
-                            <form onSubmit={handleLogin}>
+                            <form onSubmit={handleForgot}>
                                 <input
                                     placeholder="Seu email"
                                     value={email}

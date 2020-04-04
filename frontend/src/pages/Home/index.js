@@ -23,7 +23,7 @@ export default function Home() {
                             </Col>
                             
                         </Row>
-                        <Row>
+                        <Row className="buttons-block">
                             <Col sm={6}>
                                 <Link to="/login" className="button button-depth ">
                                     Login
