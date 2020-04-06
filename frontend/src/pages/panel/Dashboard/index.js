@@ -3,20 +3,13 @@ import { Redirect, useHistory } from 'react-router-dom';
 
 import { DashboardContainer } from './styles.js';
 import { Container, Row, Col } from 'react-grid-system';
+import Wrapper from '../Components/Wrapper'
 
-import HeaderContent from '../Components/Header';
-import NavContent from '../Components/Nav';
-import { StampCard } from 'tabler-react';
+import { StampCard, Page, Site, AccountDropdown, Nav } from 'tabler-react';
 
 import api from '../../../services/api';
 
 export default function Dashboard() {
-
-    const history = useHistory();
-    const token = localStorage.getItem('painel-token') || false;
-    if (!token) {
-        history.push('/painel/login');
-    }
 
     /*     try {
         const response = api.get('painel/perfil', { 
@@ -35,69 +28,48 @@ export default function Dashboard() {
         }
     }  */
 
-
-    function handleLogout(e) {
-
-        e.preventDefault();
-        console.log("logout")
-
-        localStorage.removeItem('painel-token')
-        history.push('/painel/login');
-    }
-
     return (
         <>
-        <DashboardContainer>
-            <Container>
 
-                <HeaderContent />
 
-                <Row>
-                    <Col>
-                        <NavContent />
-                    </Col>
-                </Row>
+            <DashboardContainer>
+                <Wrapper />
 
-                <Row>
-                    <Col>
-                        <h1>Dashboard</h1>
-                        {/* <button onClick={handleLogout}>Sair</button> */}
-                    </Col>
-                </Row>
+                <Page.Content>
 
-                <Row>
-                    <Col sm={3}>
-                        <StampCard header="Cursos" icon="airplay" color="blue">
-                            30
-                        </StampCard>
-                    </Col>
-                    <Col sm={3}>
-                        <StampCard header="Clientes" icon="users" color="green">
-                        40
-                        </StampCard>
-                    </Col>
-                    <Col sm={3}>
-                        <StampCard header="Vídeos" icon="video" color="yellow">
-                        50
-                        </StampCard>
-                    </Col>
-                    <Col sm={3}>
-                        <StampCard header="Arquivos" icon="upload" color="red">
-                        70
-                        </StampCard>
-                    </Col>
-                </Row>
+                    
+                    <h1>Dashboard</h1>
+                        
+                    <Row>
+                        <Col sm={3}>
+                            <StampCard header="Cursos" icon="airplay" color="blue">
+                                30
+                            </StampCard>
+                        </Col>
+                        <Col sm={3}>
+                            <StampCard header="Clientes" icon="users" color="green">
+                                40
+                            </StampCard>
+                        </Col>
+                        <Col sm={3}>
+                            <StampCard header="Vídeos" icon="video" color="yellow">
+                                50
+                            </StampCard>
+                        </Col>
+                        <Col sm={3}>
+                            <StampCard header="Arquivos" icon="upload" color="red">
+                                70
+                            </StampCard>
+                        </Col>
+                    </Row>
 
-                
+                </Page.Content>
 
-            </Container>
-          
-                
-           
-            
+
 
             </DashboardContainer>
-       
+                <Site.Footer />
+
         </>
     )
 

@@ -1,31 +1,30 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-grid-system';
+import Wrapper from '../Components/Wrapper'
 
-import NavContent from '../Components/Nav';
-import HeaderContent from '../Components/Header';
-
+import { Site, Page } from 'tabler-react'
 import "tabler-react/dist/Tabler.css";
-import { PanelCoursesContainer } from './styles.js';
+
+import { PanelCoursesContainer } from './styles'
 
 export default function PanelCourses() {
 
     return (
         <>  
-            <PanelCoursesContainer>            
-                <Container>
-                    <HeaderContent />
-                    <Row>
-                        <Col>
-                            <NavContent />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <h1>Cursos</h1>
-                        </Col>
-                    </Row>
-                </Container>
-            </PanelCoursesContainer>
+
+        <PanelCoursesContainer>
+
+            <Wrapper />
+
+            <Page.Content>
+                
+                <h1>Cursos</h1>
+
+            </Page.Content>
+
+        </PanelCoursesContainer>
+
+        <Site.Footer />
+      
         </>
     )
 }

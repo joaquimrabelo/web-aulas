@@ -39,6 +39,7 @@ export default function Routes() {
                 <Route path="/cursos" component={Courses}/>
 
                 {/* Panel  */}
+                
                 {/* <Route path="/painel" exact component={Dashboard}  
                     render={ (token) => 
                         token ?  
