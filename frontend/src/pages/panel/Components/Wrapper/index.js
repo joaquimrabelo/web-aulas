@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom'
 
 import "tabler-react/dist/Tabler.css";
-
 import { Site } from 'tabler-react';
 
 export default function Wrapper() {

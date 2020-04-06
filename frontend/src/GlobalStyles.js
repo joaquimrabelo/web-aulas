@@ -56,7 +56,8 @@ const GlobalStyle = createGlobalStyle`
     form {
         width: 100%;
     }
-    form input {
+    form input,
+    form select {
         width: 100%;
         height: 54px;
         color: #333;

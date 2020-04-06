@@ -17,7 +17,15 @@ export default function PanelCourses() {
 
             <Page.Content>
                 
-                <h1>Cursos</h1>
+                    <Row>
+                        <Col sm={10}>
+                            <h1>Cursos</h1>
+                        </Col>
+
+                        <Col sm={2}>
+                            <Button size="md" color="primary" to="/add">Adicionar Curso</Button>
+                        </Col>
+                    </Row>
 
                     <Row>
                         <Col>
