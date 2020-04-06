@@ -16,8 +16,18 @@ export default function PanelClients() {
 
             <Wrapper />
             <Page.Content>
+
+                <Row>
+                    <Col sm={10}>
+                            <h1>Clientes</h1>
+                    </Col>
+
+                    <Col sm={2}>
+                        <Button size="md" color="primary">Adicionar Cliente</Button>
+                    </Col>
+                </Row>
                            
-                <h1>Clientes</h1>
+                
                   
                 <Row>
                     <Col>
@@ -32,6 +42,7 @@ export default function PanelClients() {
                                     <Table.ColHeader>Ações</Table.ColHeader>
                                 </Table.Header>
                                 <Table.Body>
+
                                     <Table.Row>
                                         <Table.Col>1</Table.Col>
                                         <Table.Col> John Doe</Table.Col>
@@ -41,12 +52,13 @@ export default function PanelClients() {
 
                                             <Button.List>
 
-                                                <Button outline color="secondary">Cursos</Button>
-                                                <Button outline color="primary">Editar</Button>
-                                                <Button outline color="danger">Desativar</Button>
+                                                <Button outline size="sm" color="secondary">Cursos</Button>
+                                                <Button outline size="sm" color="primary">Editar</Button>
+                                                <Button outline size="sm" color="danger">Desativar</Button>
                                             </Button.List>
                                         </Table.Col>
                                     </Table.Row>
+
                                     <Table.Row>
                                         <Table.Col>2</Table.Col>
                                         <Table.Col>Jon Doe</Table.Col>
@@ -55,13 +67,29 @@ export default function PanelClients() {
                                         <Table.Col>
                                             <Button.List>
 
-                                                <Button outline color="secondary">Cursos</Button>
-                                                <Button outline color="primary">Editar</Button>
-                                                <Button outline color="danger">Desativar</Button>
+                                                <Button outline size="sm" color="secondary">Cursos</Button>
+                                                <Button outline size="sm" color="primary">Editar</Button>
+                                                <Button outline size="sm" color="danger">Desativar</Button>
                                             </Button.List>
 
                                         </Table.Col>
                                     </Table.Row>
+
+                                        <Table.Row>
+                                            <Table.Col>3</Table.Col>
+                                            <Table.Col>Jon Doe</Table.Col>
+                                            <Table.Col>johndoe@email.com</Table.Col>
+                                            <Table.Col>(99) 9999-99999</Table.Col>
+                                            <Table.Col>
+                                                <Button.List>
+
+                                                    <Button outline size="sm" color="secondary">Cursos</Button>
+                                                    <Button outline size="sm" color="primary">Editar</Button>
+                                                    <Button outline size="sm" color="danger">Desativar</Button>
+                                                </Button.List>
+
+                                            </Table.Col>
+                                        </Table.Row>
                                 </Table.Body>
                             </Table>
 

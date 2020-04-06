@@ -6,6 +6,7 @@ export const PanelClientsContainer = styled.div`
     
     h1 {
         font-size: 1.5rem;
-        padding: 1rem 0;
+        margin: .75rem 0;
+        
     }
 ` ;
