@@ -10,12 +10,9 @@ class Video extends Model {
       duration: DataTypes.INTEGER,
       status: DataTypes.BOOLEAN,
       free: DataTypes.BOOLEAN
-    }, { sequelize: connection });
+    }, { sequelize: connection, modelName: 'videos' });
   }
-};
 
-Video.associate = function(models) {
-  Course.belongsToMany(models.Course, { through: 'CourseVideo' })
 };
 
 module.exports = Video;

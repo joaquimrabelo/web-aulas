@@ -13,6 +13,8 @@ module.exports = {
       const countVideos = await Video.count();
       const countFiles = await File.count();
 
+      const countClients = 0;
+
       const user = await User.findByPk(id, { attributes: ['id', 'name', 'email'] } );
 
       if (!user) {
@@ -23,6 +25,7 @@ module.exports = {
         countCursos,
         countVideos,
         countFiles,
+        countClients,
         user
       });
     } catch (error) {
