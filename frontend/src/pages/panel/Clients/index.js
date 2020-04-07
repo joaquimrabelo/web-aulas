@@ -17,13 +17,13 @@ export default function PanelClients() {
             <Wrapper />
             <Page.Content>
 
-                <Row>
-                    <Col sm={10}>
+                <Row className="title-button-block">
+                    <Col sm={9}>
                             <h1>Clientes</h1>
                     </Col>
 
-                    <Col sm={2}>
-                        <Button size="md" color="primary">Adicionar Cliente</Button>
+                    <Col sm={3} >
+                        <Button size="md" pill color="primary">Adicionar Cliente</Button>
                     </Col>
                 </Row>
                            

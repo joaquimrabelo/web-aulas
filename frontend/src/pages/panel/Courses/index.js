@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from '../Components/Wrapper'
-import { Col, Row} from 'react-grid-system'
+import { Col, Row} from 'react-grid-system';
+import { FiTrash2 } from 'react-icons/fi';
 import { Site, Page, Table, Card, Button } from 'tabler-react'
 import "tabler-react/dist/Tabler.css";
+
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import { useHistory } from 'react-router-dom';
 import { PanelCoursesContainer } from './styles';
@@ -20,6 +24,7 @@ export default function PanelCourses() {
     const [validity, setValidity] = useState('');
     const [price, setPrice] = useState('');
     const [promo_price, setPromoPrice] = useState(''); */
+
 
     async function getCourses() {
 
@@ -40,6 +45,46 @@ export default function PanelCourses() {
         } 
 
     }
+
+
+    async function handleClickDelete(id) {
+        try {
+            const response = await api.delete(`cursos/${id}`, {
+                headers: { 'X-Access-Token': token },
+            });
+            setCourses(courses.filter(course => course.id !== id))
+
+        } catch (error) {
+            alert("Erro ao deletar Curso, tente novamente.")
+        }
+    }
+    
+    async function handleDeleteCourse(id) {
+
+        confirmAlert({
+            customUI: ({ onClose }) => {
+                return (
+                    <div className='custom-ui'>
+                        <h2>Confirmação</h2>
+                        <p>Tem certeza que deseja excluir este Curso?</p>
+                        <button className="button btn-modal"
+                                onClick={onClose}> Não </button>
+                        <button 
+                            className="button btn-modal"
+                            onClick={(e) => {
+                                handleClickDelete(id);
+                                onClose();
+                            }}
+                        >
+                            Sim, pode excluir!
+                    </button>
+                    </div>
+                );
+            }
+        });
+
+        
+    }
  
     useEffect(() => {
         getCourses(); 
@@ -57,16 +102,18 @@ export default function PanelCourses() {
             <Page.Content>
                 
                     <Row>
-                        <Col sm={10}>
+                        <Col sm={9}>
                             <h1>Cursos</h1>
                         </Col>
 
-                        <Col sm={2}>
-                            <Button color="primary" RootComponent="a" href="/painel/cursos/add">
+                        <Col sm={3}>
+                            <Button color="primary" pill RootComponent="a" href="/painel/cursos/add">
                                 Adicionar Curso
                             </Button>
                         </Col>
                     </Row>
+
+                    
 
                     <Row>
                         <Col>
@@ -87,15 +134,22 @@ export default function PanelCourses() {
        
                                         <Table.Row key={course.id}>
                                             <Table.Col>{course.id}</Table.Col>
-                                            <Table.Col> {course.title} </Table.Col>
+                                            <Table.Col>{course.title}</Table.Col>
                                             <Table.Col>{course.description}</Table.Col>
                                             <Table.Col>200</Table.Col>
                                             <Table.Col>
                                                 <Button.List>
-                                                    <Button outline size="sm" color="secondary">Ver Alunos</Button>
-                                                    <Button outline size="sm" color="primary"> Vídeos</Button>
+                                                    
+                                                    <Button outline size="sm" color="secondary">Vídeos e Arquivos</Button>
                                                     <Button outline size="sm" color="primary">Editar</Button>
-                                                    <Button outline size="sm" color="danger">Desativar</Button>
+                                                    <Button outline size="sm" 
+                                                            color="danger" 
+                                                            icon="trash"
+                                                            title="Deletar Curso"
+                                                            onClick={(e) => handleDeleteCourse(course.id)}>
+                                                             Excluir
+                                                    </Button>
+                                                    
                                                 </Button.List>
                                             </Table.Col>
                                         </Table.Row>

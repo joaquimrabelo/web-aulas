@@ -8,4 +8,8 @@ export const PanelCoursesContainer = styled.div`
         font-size: 1.5rem;
          margin: .75rem 0;
     }
+
+    .table {
+        margin-bottom: 0;
+    }
 ` ;

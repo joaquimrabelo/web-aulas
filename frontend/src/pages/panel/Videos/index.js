@@ -17,7 +17,18 @@ export default function PanelVideos() {
 
                 <Page.Content>
 
-                    <h1>Vídeos</h1>
+                    <Row>
+                        <Col sm={9}>
+                            <h1>Vídeos</h1>
+                        </Col>
+
+                        <Col sm={3}>
+                            <Button color="primary" pill RootComponent="a" href="/painel/videos/add">
+                                Adicionar Vídeo
+                            </Button>
+                        </Col>
+                    </Row>
+
 
                     <Row>
                         <Col sm={6}>
