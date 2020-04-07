@@ -31,7 +31,7 @@ module.exports = {
 
   async store(request, response) {
     const { title, description, validity, price, promo_price = null, photo } = request.body;
-
+    console.log(request.body)
     try {
       const course = await Course.create({ title, description, validity, price, promo_price, photo });
       /* const video = await Video.findByPk(1);
@@ -44,6 +44,7 @@ module.exports = {
       } */
       return response.json({'course': course});
     } catch (error) {
+      console.log(error)
       return response.status(400).json({ auth: true, message: 'Não foi possível inserir o curso.'});
     }
   },

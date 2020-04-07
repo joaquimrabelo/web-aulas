@@ -2,9 +2,7 @@ import React from 'react';
 import { 
     BrowserRouter, 
     Route, 
-    Switch, 
-    Redirect, 
-    useLocation 
+    Switch
 } from 'react-router-dom';
 
 import Home from './pages/site/Home';
@@ -25,8 +23,6 @@ import Error404 from './pages/panel/404';
 import GlobalStyle from './GlobalStyles';
 
 export default function Routes() {
-
-    const token = localStorage.getItem('painel-token') || false;
 
     return (
         <BrowserRouter>

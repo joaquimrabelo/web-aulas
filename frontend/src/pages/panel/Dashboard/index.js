@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { DashboardContainer } from './styles.js';
-import { Container, Row, Col } from 'react-grid-system';
+import { Row, Col } from 'react-grid-system';
 import Wrapper from '../Components/Wrapper'
 
-import { StampCard, Page, Site, AccountDropdown, Nav } from 'tabler-react';
+import { StampCard, Page, Site } from 'tabler-react';
 
 import api from '../../../services/api';
 

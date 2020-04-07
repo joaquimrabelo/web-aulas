@@ -8,7 +8,7 @@ import { Container, Row, Col } from 'react-grid-system';
 export default function Forgot() {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    /* const [password, setPassword] = useState(''); */
 
     const history = useHistory();
 
