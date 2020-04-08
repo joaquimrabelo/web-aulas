@@ -11,8 +11,9 @@ export const NewCourseContainer = styled.div`
     .card-body {
         padding: 1rem;
     }
-    input, 
-    select.form-control {
-        height: 48px;
+
+    .buttons-card-footer-block {
+        padding-top: 1rem;
     }
+   
 ` ;

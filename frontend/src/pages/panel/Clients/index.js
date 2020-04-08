@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-grid-system';
+import { Row, Col } from 'react-grid-system';
 
 import "tabler-react/dist/Tabler.css";
 import { Table, Button, Card, Page, Site  } from 'tabler-react';
@@ -18,28 +18,30 @@ export default function PanelClients() {
             <Page.Content>
 
                 <Row className="title-button-block">
-                    <Col sm={9}>
-                            <h1>Clientes</h1>
+                    <Col sm={7} md={9}>
+                        <h1>Clientes</h1>
                     </Col>
 
-                    <Col sm={3} >
-                        <Button size="md" pill color="primary">Adicionar Cliente</Button>
+                    <Col sm={5} md={3}>
+                        <Button color="primary" pill block RootComponent="a" href="/painel/clientes/add">
+                            Adicionar Cliente
+                        </Button>
                     </Col>
                 </Row>
-                           
-                
-                  
+
                 <Row>
                     <Col>
 
                         <Card>
                             <Table responsive="true">
                                 <Table.Header>
-                                    <Table.ColHeader>ID</Table.ColHeader>
-                                    <Table.ColHeader>Nome</Table.ColHeader>
-                                    <Table.ColHeader>Email</Table.ColHeader>
-                                    <Table.ColHeader>Telefone</Table.ColHeader>
-                                    <Table.ColHeader>Ações</Table.ColHeader>
+                                    <tr>
+                                        <Table.ColHeader>ID</Table.ColHeader>
+                                        <Table.ColHeader>Nome</Table.ColHeader>
+                                        <Table.ColHeader>Email</Table.ColHeader>
+                                        <Table.ColHeader>Telefone</Table.ColHeader>
+                                        <Table.ColHeader>Ações</Table.ColHeader>
+                                    </tr>
                                 </Table.Header>
                                 <Table.Body>
 
@@ -75,21 +77,6 @@ export default function PanelClients() {
                                         </Table.Col>
                                     </Table.Row>
 
-                                        <Table.Row>
-                                            <Table.Col>3</Table.Col>
-                                            <Table.Col>Jon Doe</Table.Col>
-                                            <Table.Col>johndoe@email.com</Table.Col>
-                                            <Table.Col>(99) 9999-99999</Table.Col>
-                                            <Table.Col>
-                                                <Button.List>
-
-                                                    <Button outline size="sm" color="secondary">Cursos</Button>
-                                                    <Button outline size="sm" color="primary">Editar</Button>
-                                                    <Button outline size="sm" color="danger">Desativar</Button>
-                                                </Button.List>
-
-                                            </Table.Col>
-                                        </Table.Row>
                                 </Table.Body>
                             </Table>
 

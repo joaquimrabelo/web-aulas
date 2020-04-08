@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
     * {
         margin: 0;
         padding: 0;
@@ -43,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
         justify-content: center;
         flex-direction: row;
     }
+
     /* Form */
     input, button, textarea {
         font: 400 18px Roboto, sans-serif;
@@ -50,8 +52,7 @@ const GlobalStyle = createGlobalStyle`
     form {
         width: 100%;
     }
-    form input,
-    form select {
+    .input-site {
         width: 100%;
         height: 54px;
         color: #333;
@@ -109,7 +110,7 @@ const GlobalStyle = createGlobalStyle`
         -webkit-transition: all .1s ease-in;
         transition: all .1s ease-in;
     }
-    .button {
+    .btn-site {
         width: 100%;
         height: 60px;
         background-color: var(--primary-color);
@@ -128,26 +129,6 @@ const GlobalStyle = createGlobalStyle`
             filter: brightness(90%);
         }
     }
-    /* Panel */
-    .title_pages {
-        color: var(--primary-color);
-        margin-bottom: .5rem;
-    }
- 
-    .title-button-block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .btn-modal {
-        font-size: 14px;
-        line-height: 50px;
-        height: 50px; 
-        width: 48%;
-        margin: 3px;
-    }
-
     .clean-link {
         display: flex;
         align-items: center;
@@ -168,12 +149,58 @@ const GlobalStyle = createGlobalStyle`
         display: flex;
         justify-content: space-between;
     }
+    
+    /* ==== Panel ==== */
+    .btn-panel {
+        width: 100%;
+        height: 60px;
+        background-color: var(--alert-color);
+        border: 0;
+        border-radius: 50px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 16px;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 60px;
+        transition: filter .2s;
+        &:hover {
+            filter: brightness(90%);
+        }
+    }
+    /* Card - New Item */
+    .title_pages {
+        font-size: 1.5rem;
+        margin-bottom: .5rem;
+    }
+    
+    .title-button-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    /* Modal */
+    .btn-modal {
+        font-size: 14px;
+        line-height: 50px;
+        height: 50px; 
+        width: 48%;
+        margin: 3px;
+    }
+
+
     @media(min-width: 600px) {
         h1 {
             font-size: 3.5rem;
         }
         .clean-link {
             font-size: 18px;
+        }
+        .title-button-block {
+            margin-bottom: 0;
         }
     }
    

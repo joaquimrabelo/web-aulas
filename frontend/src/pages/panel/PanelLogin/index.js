@@ -63,18 +63,20 @@ export default function PanelLogin() {
 
                             <form onSubmit={handleLogin}>
                                 <input
+                                    className="input-site"
                                     placeholder="Seu email"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
                                 />
                                 <input
-                                type="password"
+                                    className="input-site"
+                                    type="password"
                                     placeholder="Sua senha"
                                     value={password}
                                     onChange={e => setPassword(e.target.value)}
                                 />
 
-                                <button className="button link button-depth" type="submit">Entrar</button>
+                                <button className="button btn-site link button-depth" type="submit">Entrar</button>
 
                             </form>
 

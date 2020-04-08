@@ -15,17 +15,18 @@ export default function PanelFiles() {
                 <Page.Content>
                     
                     <Row className="title-button-block">
-                        <Col sm={9}>
+                        <Col sm={7} md={9}>
                             <h1>Arquivos</h1>
                         </Col>
 
-                        <Col sm={3}>
-                            <Button color="primary" pill RootComponent="a" href="/painel/arquivos/add">
+                        <Col sm={5} md={3}>
+                            <Button color="primary" pill block RootComponent="a" href="/painel/arquivos/add">
                                 Adicionar Arquivo
                             </Button>
                         </Col>
                     </Row>
-
+                    
+                   
                   
 
                 </Page.Content>

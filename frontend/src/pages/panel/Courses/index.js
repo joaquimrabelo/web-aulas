@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from '../Components/Wrapper'
 import { Col, Row} from 'react-grid-system';
-import { FiTrash2 } from 'react-icons/fi';
 import { Site, Page, Table, Card, Button } from 'tabler-react'
 import "tabler-react/dist/Tabler.css";
 
@@ -17,15 +16,10 @@ export default function PanelCourses() {
 
     const token = localStorage.getItem('painel-token') || false;
     const [courses, setCourses] = useState([]);
-    
-    /* const [photo, setPhoto] = useState('');
-    const [status, setStatus] = useState('');
-    const [free, setFree] = useState('');
-    const [validity, setValidity] = useState('');
-    const [price, setPrice] = useState('');
-    const [promo_price, setPromoPrice] = useState(''); */
 
+    const history = useHistory();
 
+    /* LIST ALL */
     async function getCourses() {
 
          try {
@@ -47,11 +41,19 @@ export default function PanelCourses() {
     }
 
 
+    /* EDIT */
+    async function handleEditCourse(id) {
+        console.log(id)
+        history.push(`cursos/${id}/edit`)
+    }
+
+    /* DELETE */
     async function handleClickDelete(id) {
         try {
             const response = await api.delete(`cursos/${id}`, {
                 headers: { 'X-Access-Token': token },
             });
+            console.log(response.data)
             setCourses(courses.filter(course => course.id !== id))
 
         } catch (error) {
@@ -99,21 +101,20 @@ export default function PanelCourses() {
 
             <Wrapper />
 
-            <Page.Content>
+                <Page.Content>
                 
-                    <Row>
-                        <Col sm={9}>
+                    <Row className="title-button-block">
+                        <Col sm={7} md={9}>
                             <h1>Cursos</h1>
                         </Col>
 
-                        <Col sm={3}>
-                            <Button color="primary" pill RootComponent="a" href="/painel/cursos/add">
+                        <Col sm={5} md={3}>
+                            <Button color="primary" pill block RootComponent="a" href="/painel/cursos/add">
                                 Adicionar Curso
                             </Button>
                         </Col>
                     </Row>
 
-                    
 
                     <Row>
                         <Col>
@@ -129,8 +130,10 @@ export default function PanelCourses() {
                                         </tr>
                                     </Table.Header>
                                     <Table.Body>
- 
-                                        {courses.map(course => (
+
+                                    {courses.length > 0 ? 
+
+                                    (courses.map(course => (
        
                                         <Table.Row key={course.id}>
                                             <Table.Col>{course.id}</Table.Col>
@@ -141,7 +144,10 @@ export default function PanelCourses() {
                                                 <Button.List>
                                                     
                                                     <Button outline size="sm" color="secondary">Vídeos e Arquivos</Button>
-                                                    <Button outline size="sm" color="primary">Editar</Button>
+                                                    <Button outline size="sm" color="primary"
+                                                            onClick={(e) => handleEditCourse(course.id)}>
+                                                            Editar
+                                                    </Button>
                                                     <Button outline size="sm" 
                                                             color="danger" 
                                                             icon="trash"
@@ -154,7 +160,19 @@ export default function PanelCourses() {
                                             </Table.Col>
                                         </Table.Row>
 
-                                        ))} 
+                                        ))
+
+                                        ) : (
+
+                                        <Table.Row>
+                                            <Table.Col>
+                                                    Nenhum curso cadastrado!
+                                            </Table.Col>
+                                            
+                                        </Table.Row>
+                                            
+                                       
+                                        )}
 
                                    </Table.Body>
                                 </Table>
@@ -164,7 +182,7 @@ export default function PanelCourses() {
                         </Col>
                     </Row>
 
-            </Page.Content>
+                </Page.Content>
 
         </PanelCoursesContainer>
 

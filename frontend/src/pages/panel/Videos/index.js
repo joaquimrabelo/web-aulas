@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-grid-system';
+import ReactPlayer from 'react-player';
 
 import { Site, Page, Card, Button} from 'tabler-react';
 import Wrapper from '../Components/Wrapper'
@@ -17,139 +18,50 @@ export default function PanelVideos() {
 
                 <Page.Content>
 
-                    <Row>
-                        <Col sm={9}>
+                    <Row className="title-button-block">
+                        <Col sm={7} md={9}>
                             <h1>Vídeos</h1>
                         </Col>
 
-                        <Col sm={3}>
-                            <Button color="primary" pill RootComponent="a" href="/painel/videos/add">
+                        <Col sm={5} md={3}>
+                            <Button color="primary" pill block RootComponent="a" href="/painel/videos/add">
                                 Adicionar Vídeo
                             </Button>
                         </Col>
                     </Row>
 
-
                     <Row>
                         <Col sm={6}>
                             <Card>
                                 <Card.Header>
-                                    <Card.Title>Vídeo sobre a aula 1</Card.Title>
-                                    <Card.Options>
-                                        <Button outline color="primary" size="sm">
-                                            Editar
-                                </Button>
-                                        <Button outline color="danger" size="sm" className="ml-2">
-                                            Desativar
-                                </Button>
-                                    </Card.Options>
-                                </Card.Header>
-                                <Card.Body>
-                                    Descrição sobre a aula
-                        </Card.Body>
-                                <Card.Footer>Cursos: Curso1</Card.Footer>
-                            </Card>
-
-                        </Col>
-                        <Col sm={6}>
-                            <Card>
-                                <Card.Header>
-                                    <Card.Title>Vídeo sobre a aula 2ds fsdf dsfsd fsdfsdfsdfsdxvx vv \xcv xzcv xcvcxzvzxcvxcvx f </Card.Title>
-                                    <Card.Options>
-                                        <Button outline color="primary" size="sm">
-                                            Editar
-                                </Button>
-                                        <Button outline color="danger" size="sm" className="ml-2">
-                                            Desativar
-                                </Button>
-                                    </Card.Options>
-                                </Card.Header>
-                                <Card.Body>
-                                    Descrição sobre a aula
-                        </Card.Body>
-                                <Card.Footer>Cursos: Curso1</Card.Footer>
-                            </Card>
-                        </Col>
-                        <Col sm={6}>
-                            <Card>
-                                <Card.Header>
-                                    <Card.Title>Vídeo sobre a aula 1</Card.Title>
-                                    <Card.Options>
-                                        <Button outline color="primary" size="sm">
-                                            Editar
-                                </Button>
-                                        <Button outline color="danger" size="sm" className="ml-2">
-                                            Desativar
-                                </Button>
-                                    </Card.Options>
-                                </Card.Header>
-                                <Card.Body>
-                                    Descrição sobre a aula
-                        </Card.Body>
-                                <Card.Footer>Cursos: Curso1</Card.Footer>
-                            </Card>
-                        </Col>
-
-                    
-                        <Col sm={6}>
-                            <Card>
-                                <Card.Header>
-                                    <Card.Title>Vídeo sobre a aula 1</Card.Title>
-                                    <Card.Options>
-                                        <Button outline color="primary" size="sm">
-                                            Editar
-                                </Button>
-                                        <Button outline color="danger" size="sm" className="ml-2">
-                                            Desativar
-                                </Button>
-                                    </Card.Options>
-                                </Card.Header>
-                                <Card.Body>
-                                    Descrição sobre a aula
-                        </Card.Body>
-                                <Card.Footer>Cursos: Curso1</Card.Footer>
-                            </Card>
-
-                        </Col>
-                        <Col sm={6}>
-                            <Card>
-                                <Card.Header>
-                                    <Card.Title>Vídeo sobre a aula 2ds fsdf dsfsd f </Card.Title>
+                                    <Card.Title>
+                                       Título
+                                    </Card.Title>
                                     <Card.Options>
                                         <Button outline color="primary" size="sm">
                                             Editar
                                         </Button>
-                                        <Button outline color="danger" size="sm" className="ml-2">
+                                        <Button outline color="secondary" size="sm" className="ml-2">
                                             Desativar
                                         </Button>
+                                        <Button outline color="danger" size="sm" className="ml-2" icon="trash" />
+                                        
                                     </Card.Options>
                                 </Card.Header>
                                 <Card.Body>
-                                    Descrição sobre a aula
-                                    
+                                    <p>Descrição</p>
+                                    <ReactPlayer 
+                                        url='https://www.youtube.com/watch?'
+                                        width="100%" 
+                                        height="230px" />
                                 </Card.Body>
-                                <Card.Footer><a href="https://www.youtube.com/watch?v=P2TcQ3h0ipQ">Ver vídeo</a></Card.Footer>
-                            </Card>
-                        </Col>
-                        <Col sm={6}>
-                            <Card>
-                                <Card.Header>
-                                    <Card.Title>Vídeo sobre a aula 1</Card.Title>
-                                    <Card.Options>
-                                        <Button outline color="primary" size="sm">
-                                            Editar
-                                </Button>
-                                        <Button outline color="danger" size="sm" className="ml-2">
-                                            Desativar
-                                </Button>
-                                    </Card.Options>
-                                </Card.Header>
-                                <Card.Body>
-                                    Descrição sobre a aula
-                        </Card.Body>
                                 <Card.Footer>Cursos: Curso1</Card.Footer>
                             </Card>
+
                         </Col>
+                       
+                    
+                   
 
                     </Row>
 

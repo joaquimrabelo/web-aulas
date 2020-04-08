@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import Wrapper from '../../Components/Wrapper';
 import { Col, Row } from 'react-grid-system'; 
+/* import CourseForm from '../form.js'; */
 
 import { Site, Page, Card, Form, Button } from 'tabler-react';
 import "tabler-react/dist/Tabler.css";
@@ -10,7 +11,7 @@ import { NewCourseContainer } from './styles.js';
 
 import api from '../../../../services/api';
 
-export default function PanelNewCourse() {
+export default function PanelNewCourse(props) {
 
     const token = localStorage.getItem('painel-token') || false;
     
@@ -45,7 +46,7 @@ export default function PanelNewCourse() {
             const response = await api.post('cursos', data, {
                 headers: { 'X-Access-Token': token },
             });
-            
+            console.log("try..", response.data)
             history.push('/painel/cursos');
 
         } catch (error) {
@@ -70,137 +71,132 @@ export default function PanelNewCourse() {
 
                     <Card.Body>
 
-                        <Form 
-                            onSubmit={handleNewCourse}
-                        >
+                        <Form onSubmit={handleNewCourse}>
+
+
                             <Row>
                                 <Col>
                                     <Form.Group label="Nome do Curso">
-                                    <Form.Input
-                                        name="title"
-                                        placeholder="Nome do Curso"
-                                        value={title}
-                                        onChange={e => setTitle(e.target.value)}
-                                    />
-                                </Form.Group>
+                                        <Form.Input
+                                            name="title"
+                                            placeholder="Nome do Curso"
+                                            value={title}
+                                            onChange={e => setTitle(e.target.value)}
+                                        />
+                                    </Form.Group>
                                 </Col>
                             </Row>
-                        <Row>
-                            <Col>
-                                <Form.Group label="Descrição">
-                                    <Form.Input
-                                        name="description"
-                                        placeholder="Descrição do Curso"
-                                        value={description}
-                                        onChange={e => setDescription(e.target.value)}
-                                    />
-                                </Form.Group>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col sm={4}>
-                                <Form.Group label="Foto">
-                                    <Form.FileInput 
-                                    name="photo" 
-                                    value={photo}
-                                    onChange={e => setPhoto(e.target.value)}
-                                    />
-                                </Form.Group>
-                            </Col>
-                            <Col sm={4}>
-                                <Form.Group label="Status">
-                                    <Form.Select name="status">
-                                        <option value="true">
-                                            Ativo
-                                        </option>
-                                        <option value="false">
-                                            Inativo
-                                        </option>
-                                    </Form.Select>
-                                </Form.Group>
-                            </Col>
-                            <Col sm={4}>
-                                <Form.Group label="Validade (em dias)">
+                            <Row>
+                                <Col>
+                                    <Form.Group label="Descrição">
+                                        <Form.Input
+                                            name="description"
+                                            placeholder="Descrição do Curso"
+                                            value={description}
+                                            onChange={e => setDescription(e.target.value)}
+                                        />
+                                    </Form.Group>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm={4}>
+                                    <Form.Group label="Foto">
+                                        <Form.FileInput
+                                            name="photo"
+                                            value={photo}
+                                            onChange={e => setPhoto(e.target.value)}
+                                        />
+                                    </Form.Group>
+                                </Col>
+                                <Col sm={4}>
+                                    <Form.Group label="Status">
+                                        <Form.Select
+                                            name="status"
+                                            value={status}
+                                            onChange={e => setStatus(e.target.value)}>
+                                            <option value="true">
+                                                Ativo
+                                            </option>
+                                            <option value="false">
+                                                Inativo
+                                            </option>
+                                        </Form.Select>
+                                    </Form.Group>
+                                </Col>
+                                <Col sm={4}>
+                                    <Form.Group label="Validade (em dias)">
                                         <Form.Input
                                             name="validity"
                                             placeholder="Quantos dias"
                                             value={validity}
                                             onChange={e => setValidity(e.target.value)}
                                         />
-                                </Form.Group>
-                            </Col>
-                        </Row>
+                                    </Form.Group>
+                                </Col>
+                            </Row>
 
-                        <Row>
-                            <Col sm={4}>
-                                <Form.Group label="Preço">
-                                    <Form.InputGroup>
-                                        <Form.InputGroupPrepend>
-                                            <Form.InputGroupText>
-                                                R$
+                            <Row>
+                                <Col sm={4}>
+                                    <Form.Group label="Preço">
+                                        <Form.InputGroup>
+                                            <Form.InputGroupPrepend>
+                                                <Form.InputGroupText>
+                                                    R$
                                             </Form.InputGroupText>
-                                        </Form.InputGroupPrepend>
-                                        <Form.Input 
-                                            name="price"
-                                            value={price}
-                                            onChange={e => setPrice(e.target.value)}
-                                                 />
-                                        <Form.InputGroupAppend>
-                                            <Form.InputGroupText>
-                                                ,00
-                                            </Form.InputGroupText>
-                                        </Form.InputGroupAppend>
-                                    </Form.InputGroup>
-                                </Form.Group>
-                            </Col>
-                            <Col sm={4}>
+                                            </Form.InputGroupPrepend>
+                                            <Form.Input
+                                                name="price"
+                                                value={price}
+                                                onChange={e => setPrice(e.target.value)}
+                                            />
+                                            
+                                        </Form.InputGroup>
+                                    </Form.Group>
+                                </Col>
+                                <Col sm={4}>
 
-                                <Form.Group label="Preço em Promoção">
-                                    <Form.InputGroup>
-                                        <Form.InputGroupPrepend>
-                                            <Form.InputGroupText>
-                                                R$
-                                            </Form.InputGroupText>
-                                        </Form.InputGroupPrepend>
-                                        <Form.Input 
-                                            name="promo_price"
-                                            placeholder="Valor em promoção"
-                                            value={promo_price}
-                                            onChange={e => setPromoPrice(e.target.value)} />
-                                        
-                                    </Form.InputGroup>
-                                </Form.Group>
-                                
-                            </Col>
-                            <Col sm={4}>
-                                <Form.Group label="Gratuito?">
-                                    <Form.SwitchStack>
-                                        <Form.Switch 
-                                            type="checkbox" 
-                                            name="free" 
-                                            label="Sim" 
-                                            value={free}
-                                            onChange={e => setFree(e.target.value)}
-                                        />
-                                    </Form.SwitchStack>
-                                </Form.Group>
-                            </Col>
-                        </Row>
+                                    <Form.Group label="Preço em Promoção">
+                                        <Form.InputGroup>
+                                            <Form.InputGroupPrepend>
+                                                <Form.InputGroupText>
+                                                    R$
+                                                </Form.InputGroupText>
+                                            </Form.InputGroupPrepend>
+                                            <Form.Input
+                                                name="promo_price"
+                                                placeholder="Valor em promoção"
+                                                value={promo_price}
+                                                onChange={e => setPromoPrice(e.target.value)} />
 
-                            <Button.List>
+                                        </Form.InputGroup>
+                                    </Form.Group>
+
+                                </Col>
+                                <Col sm={4}>
+                                    <Form.Group label="Gratuito?">
+                                        <Form.SwitchStack>
+                                            <Form.Switch
+                                                type="checkbox"
+                                                name="free"
+                                                label="Sim"
+                                                value={free}
+                                                onChange={e => setFree(e.target.value)}
+                                            />
+                                        </Form.SwitchStack>
+                                    </Form.Group>
+                                </Col>
+                            </Row>
+
+
+
+                            <Button.List className="buttons-card-footer-block">
                                 <Button size="lg" outline color="secondary">Cancelar</Button>
                                 <Button size="lg" color="success" type="submit">Salvar</Button>
                             </Button.List>
-                        
 
-                            
                         </Form>
 
                     </Card.Body>
-
-                    
-
-               
 
                 </Page.Card>
 

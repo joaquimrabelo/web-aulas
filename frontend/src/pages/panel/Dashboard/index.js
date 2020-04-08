@@ -18,7 +18,7 @@ export default function Dashboard() {
     const [videos, setVideos] = useState(0);
     const [files, setFiles] = useState(0);
 
-    const history = useHistory();
+   /*  const history = useHistory(); */
 
     async function getProfile () {
 
@@ -59,24 +59,24 @@ export default function Dashboard() {
                     <h1>Dashboard</h1>
                         
                     <Row>
-                        <Col sm={3}>
+                        <Col sm={6} md={3}>
                             <StampCard header="Cursos" icon="airplay" color="blue">
-                                {courses}
+                                <a href="/painel/cursos">{courses}</a>
                             </StampCard>
                         </Col>
-                        <Col sm={3}>
+                        <Col sm={6} md={3}>
                             <StampCard header="Clientes" icon="users" color="green">
-                                {clients}
+                                <a href="/painel/clientes">{clients}</a>
                             </StampCard>
                         </Col>
-                        <Col sm={3}>
+                        <Col sm={6} md={3}>
                             <StampCard header="Vídeos" icon="video" color="yellow">
-                                {videos}
+                                <a href="/painel/videos">{videos}</a>
                             </StampCard>
                         </Col>
-                        <Col sm={3}>
+                        <Col sm={6} md={3}>
                             <StampCard header="Arquivos" icon="upload" color="red">
-                                {files}
+                                <a href="/painel/arquivos">{files}</a>
                             </StampCard>
                         </Col>
                     </Row>

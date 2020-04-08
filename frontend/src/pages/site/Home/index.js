@@ -25,13 +25,13 @@ export default function Home() {
                         </Row>
                         <Row className="buttons-block">
                             <Col sm={6}>
-                                <Link to="/login" className="button button-depth ">
+                                <Link to="/login" className="btn-site button-depth ">
                                     Login
                                 </Link>
 
                             </Col>
                             <Col sm={6}>
-                                <Link to="/cadastro" className="button button-depth ">
+                                <Link to="/cadastro" className="btn-site button-depth ">
                                     Cadastro
                                 </Link>
                             </Col>

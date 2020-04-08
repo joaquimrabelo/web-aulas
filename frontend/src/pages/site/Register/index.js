@@ -12,8 +12,6 @@ export default function Register() {
     const [password, setPassword] = useState('');
     const [whatsapp, setWhatsapp] = useState('');
 
-    /* const history = useHistory(); */
-
     async function handleRegister(e) {
         e.preventDefault();
         console.log("handle register")
@@ -24,16 +22,7 @@ export default function Register() {
             password,
             whatsapp
         };
-
-        /* try {
-            const response = await api.post('users', data);
-
-            alert(`Seu ID de acesso: ${response.data.users}`);
-            history.push('/');
-
-        } catch (error) {
-            alert('Erro no cadastro, tente novamente');
-        } */
+        
     } 
 
     return (
@@ -42,7 +31,6 @@ export default function Register() {
                 <Row>
                     <Col>
                         <h1>Cadastro</h1>
-                       
                     </Col>
                 </Row>
                 <Row>
@@ -51,11 +39,13 @@ export default function Register() {
 
                             <form onSubmit={handleRegister}>
                                 <input
+                                    className="input-site"
                                     placeholder="Digite seu nome"
                                     value={name}
                                     onChange={e => setName(e.target.value)}
                                 />
                                 <input
+                                    className="input-site"
                                     type="email"
                                     placeholder="Digite seu e-mail"
                                     value={email}
@@ -63,6 +53,7 @@ export default function Register() {
                                 />
 
                                 <input
+                                    className="input-site"
                                     type="password"
                                     placeholder="Digite uma senha"
                                     value={password}
@@ -70,16 +61,16 @@ export default function Register() {
                                 />
 
                                 <input
+                                    className="input-site"
                                     placeholder="Digite seu WhatsApp"
                                     value={whatsapp}
                                     onChange={e => setWhatsapp(e.target.value)}
                                 />
 
-                                <button className="button" type="submit">Cadastrar</button>
+                                <button className="btn-site" type="submit">Cadastrar</button>
                             </form>
 
-                          
-
+                        
                         </section>
 
                         <div className="clean-links-block">
