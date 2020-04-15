@@ -13,4 +13,9 @@ export const PanelCoursesContainer = styled.div`
         margin-bottom: 0;
     }
    
+    .buttons-card-footer-block {
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid #ddd;
+    }
 ` ;

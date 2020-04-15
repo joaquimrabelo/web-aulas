@@ -51,12 +51,14 @@ export default function Login() {
                                     className="input-site"
                                     placeholder="Seu email"
                                     value={email}
+                                    type="email"
                                     onChange={e => setEmail(e.target.value)}
                                 />
                                 <input
                                     className="input-site"
                                     placeholder="Sua senha"
                                     value={password}
+                                    type="password"
                                     onChange={e => setPassword(e.target.value)}
                                 />
                                 

@@ -54,7 +54,7 @@ export default function Routes() {
                 
                     <Route path="/painel/login" component={PanelLogin}/>
 
-                    <Route path="/painel/cursos" exact component={PanelCourses}/>
+                    <Route path="/painel/cursos" exact component={PanelCourses} activeClassName="active" />
                     <Route path="/painel/cursos/add" component={PanelNewCourse}/>
                     <Route path="/painel/cursos/:id/edit" component={PanelEditCourse}/>
 

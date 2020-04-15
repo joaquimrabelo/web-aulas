@@ -7,19 +7,15 @@ export default function Loading() {
 
     return (
         <>
-        <Loader>
-            <Container>
-                <Row>
-                    <Col>
-                        
-                        Carregando...
-                        
-                    </Col>
-                </Row>
-            </Container>
-        </Loader>
-            
-
+            <Loader>
+                <Container>
+                    <Row>
+                        <Col>
+                            Carregando...
+                        </Col>
+                    </Row>
+                </Container>
+            </Loader>
         </>
     )
 }

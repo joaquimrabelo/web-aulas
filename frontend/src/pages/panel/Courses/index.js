@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Wrapper from '../Components/Wrapper'
+import Wrapper from '../Components/Wrapper';
 import { Col, Row} from 'react-grid-system';
 import { Site, Page, Table, Card, Button } from 'tabler-react'
 import "tabler-react/dist/Tabler.css";
@@ -7,17 +7,18 @@ import "tabler-react/dist/Tabler.css";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { PanelCoursesContainer } from './styles';
 
-import api from '../../../services/api'
+import api from '../../../services/api';
 
-export default function PanelCourses() {
+export default function PanelCourses(props) {
 
     const token = localStorage.getItem('painel-token') || false;
     const [courses, setCourses] = useState([]);
 
     const history = useHistory();
+    const location = useLocation();
 
     /* LIST ALL */
     async function getCourses() {
@@ -39,7 +40,6 @@ export default function PanelCourses() {
         } 
 
     }
-
 
     /* EDIT */
     async function handleEditCourse(id) {
@@ -69,10 +69,10 @@ export default function PanelCourses() {
                     <div className='custom-ui'>
                         <h2>Confirmação</h2>
                         <p>Tem certeza que deseja excluir este Curso?</p>
-                        <button className="button btn-modal"
+                        <button className="btn-modal"
                                 onClick={onClose}> Não </button>
                         <button 
-                            className="button btn-modal"
+                            className="btn-modal"
                             onClick={(e) => {
                                 handleClickDelete(id);
                                 onClose();
@@ -93,6 +93,10 @@ export default function PanelCourses() {
  
     }, [token]);
     
+    useEffect(() => {
+        console.log('location', location)
+        
+    }, [location]);
 
     return (
         <>  
@@ -102,10 +106,18 @@ export default function PanelCourses() {
             <Wrapper />
 
                 <Page.Content>
-                
+
+                    { location.state !== undefined ?  
+                    <Row>
+                        <Col>
+                            <div className="alert alert-success">{location.state.detail}</div>
+                        </Col>
+                    </Row> : '' }
+                 
                     <Row className="title-button-block">
                         <Col sm={7} md={9}>
                             <h1>Cursos</h1>
+                            {/* <p>Total de Cursos: {}</p> */}
                         </Col>
 
                         <Col sm={5} md={3}>

@@ -74,12 +74,15 @@ export default function EditCourse(props) {
                 headers: { 'X-Access-Token': token },
             });
             console.log(response.data)
-            
-            history.push(`cursos/${id}/edit`);
+
+            history.push({
+                pathname: '/painel/cursos',
+                state: { detail: response.data.message }
+            });
 
         } catch (error) {
             console.log(error)
-            alert('Erro ao editar Curso, tente novamente.')
+            alert('Erro ao editar Curso, tente novamente.');
         }
        
     }
@@ -93,9 +96,7 @@ export default function EditCourse(props) {
     return (
         <>
 
-        <PanelCoursesContainer>
-
-            
+        <PanelCoursesContainer>          
         
             <Wrapper />
 
@@ -107,7 +108,7 @@ export default function EditCourse(props) {
 
                     <Card.Body>
 
-                        {/* <CourseForm /> */}
+                    {/* <CourseForm /> */}
 
                     <Form onSubmit={handleEditCourse} >
 

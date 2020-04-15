@@ -13,7 +13,9 @@ export const NewCourseContainer = styled.div`
     }
 
     .buttons-card-footer-block {
-        padding-top: 1rem;
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid #ddd;
     }
    
 ` ;

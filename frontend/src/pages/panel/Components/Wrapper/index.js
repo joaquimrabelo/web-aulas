@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import "tabler-react/dist/Tabler.css";
 import { Site } from 'tabler-react';
 
+import PanelCourses from '../../Courses'
+
 export default function Wrapper() {
 
     const history = useHistory();

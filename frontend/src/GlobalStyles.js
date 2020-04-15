@@ -188,7 +188,12 @@ const GlobalStyle = createGlobalStyle`
         line-height: 50px;
         height: 50px; 
         width: 48%;
-        margin: 3px;
+        margin: 2px;
+        border: none;
+        border-radius: 50px;
+        background-color: var(--primary-color);
+        color: #fff;
+        font-weight: 500;
     }
 
 

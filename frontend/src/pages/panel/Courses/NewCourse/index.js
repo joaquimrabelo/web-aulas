@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Wrapper from '../../Components/Wrapper';
@@ -25,6 +25,7 @@ export default function PanelNewCourse(props) {
     const [promo_price, setPromoPrice] = useState('');
 
     const history = useHistory();
+
 
     async function handleNewCourse(e) {
         e.preventDefault();
@@ -189,9 +190,9 @@ export default function PanelNewCourse(props) {
 
 
 
-                            <Button.List className="buttons-card-footer-block">
-                                <Button size="lg" outline color="secondary">Cancelar</Button>
-                                <Button size="lg" color="success" type="submit">Salvar</Button>
+                            <Button.List className="buttons-card-footer-block" >
+                                <Button size="lg" pill outline color="secondary">Cancelar</Button>
+                                <Button size="lg" pill color="success" type="submit" >Salvar</Button>
                             </Button.List>
 
                         </Form>
