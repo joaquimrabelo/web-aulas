@@ -8,4 +8,10 @@ export const DashboardContainer = styled.div`
         font-size: 1.5rem;
         padding: 1rem 0;
     }
+    a:hover {
+        text-decoration: none;
+    }
+    h4 {
+        margin-bottom: 0;
+    }
 ` ;

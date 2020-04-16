@@ -60,24 +60,34 @@ export default function Dashboard() {
                         
                     <Row>
                         <Col sm={6} md={3}>
-                            <StampCard header="Cursos" icon="airplay" color="blue">
-                                <a href="/painel/cursos">{courses}</a>
-                            </StampCard>
+                            <a href="/painel/cursos">
+                                <StampCard header="Cursos" icon="airplay" color="blue">
+                                    <h4>{courses}</h4>
+                                </StampCard> 
+                            </a>
                         </Col>
                         <Col sm={6} md={3}>
-                            <StampCard header="Clientes" icon="users" color="green">
-                                <a href="/painel/clientes">{clients}</a>
-                            </StampCard>
+                            <a href="/painel/clientes">
+                                <StampCard header="Clientes" icon="users" color="green">
+                                    <h4>{clients}</h4>
+                                </StampCard>
+                            </a>
                         </Col>
                         <Col sm={6} md={3}>
-                            <StampCard header="Vídeos" icon="video" color="yellow">
-                                <a href="/painel/videos">{videos}</a>
-                            </StampCard>
+                            <a href="/painel/videos">
+                                <StampCard header="Vídeos" icon="video" color="yellow">
+                                    <h4>{videos}</h4>
+                                </StampCard>
+                            </a>
+                           
                         </Col>
                         <Col sm={6} md={3}>
-                            <StampCard header="Arquivos" icon="upload" color="red">
-                                <a href="/painel/arquivos">{files}</a>
-                            </StampCard>
+                            <a href="/painel/arquivos">
+                                <StampCard header="Arquivos" icon="upload" color="red">
+                                    <h4>{files}</h4>
+                                </StampCard>
+                            </a>
+                          
                         </Col>
                     </Row>
 

@@ -36,7 +36,7 @@ export default function EditCourse(props) {
             if (response.data) {
                 setTitle(response.data.title)
                 setDescription(response.data.description)
-                setFree(response.data.Free)
+                setFree(response.data.free)
                 setValidity(response.data.validity)
                 setPrice(response.data.price)
                 setPromoPrice(response.data.promo_price)
@@ -227,10 +227,12 @@ export default function EditCourse(props) {
                             </Col>
                         </Row>
 
-                        <Button.List>
-                            <Button size="lg" outline color="secondary">Cancelar</Button>
-                            <Button size="lg" color="success" type="submit">Atualizar</Button>
+                        <Button.List className="buttons-card-footer-block" >
+                            <Button size="lg" pill outline color="secondary">Cancelar</Button>
+                            <Button size="lg" pill color="success" type="submit">Atualizar</Button>
                         </Button.List>
+
+
 
                     </Form>
                         
