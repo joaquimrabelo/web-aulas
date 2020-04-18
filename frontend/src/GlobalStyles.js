@@ -182,6 +182,13 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         margin-bottom: 1rem;
     }
+    /* Edit - footer buttons */
+    .buttons-card-footer-block {
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid #ddd;
+    }
+
     /* Modal */
     .btn-modal {
         font-size: 14px;

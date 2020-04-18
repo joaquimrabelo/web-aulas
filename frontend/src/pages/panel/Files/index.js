@@ -176,9 +176,9 @@ export default function PanelFiles(props) {
 
                                             ) : (
 
-                                                <Table.Row>
-                                                    <Table.Col>
-                                                        Nenhum arquivo cadastrado!
+                                            <Table.Row>
+                                                <Table.Col>
+                                                    Nenhum arquivo cadastrado!
                                                 </Table.Col>
 
                                             </Table.Row>

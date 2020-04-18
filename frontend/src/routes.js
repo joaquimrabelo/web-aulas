@@ -26,7 +26,10 @@ export default function Routes() {
     const PanelEditCourse = lazy(() => import('./pages/panel/Courses/EditCourse'))
 
     const PanelClients = lazy(() => import('./pages/panel/Clients'))
+
     const PanelVideos = lazy(() => import('./pages/panel/Videos'))
+    const PanelNewVideo = lazy(() => import('./pages/panel/Videos/NewVideo'))
+    const PanelEditVideo = lazy(() => import('./pages/panel/Videos/EditVideo'))
 
     const PanelFiles = lazy(() => import('./pages/panel/Files'))
     const PanelNewFile = lazy(() => import('./pages/panel/Files/NewFile'))
@@ -45,16 +48,7 @@ export default function Routes() {
                     <Route path="/cursos" component={Courses}/>
 
                 {/* Panel  */}
-                
-                {/* <Route path="/painel" exact component={Dashboard}  
-                    render={ (token) => 
-                        token ?  
-                        <Redirect to="/painel" /> :
-                        <Redirect to={{ pathname: "/painel/login" }} /> 
-                    }
-                                
-                /> */}
-              
+                              
                     <Route path="/painel" exact component={Dashboard}/>
                 
                     <Route path="/painel/login" component={PanelLogin}/>
@@ -65,7 +59,9 @@ export default function Routes() {
 
                     <Route path="/painel/clientes" exact component={PanelClients}/>
                     
-                    <Route path="/painel/videos" component={PanelVideos}/>
+                    <Route path="/painel/videos" exact component={PanelVideos}/>
+                    <Route path="/painel/videos/add" component={PanelNewVideo} />
+                    <Route path="/painel/videos/:id/edit" component={PanelEditVideo} /> 
 
                     <Route path="/painel/arquivos" exact component={PanelFiles}/>
                     <Route path="/painel/arquivos/add" component={PanelNewFile} />

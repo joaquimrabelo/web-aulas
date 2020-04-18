@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-grid-system';
 
 import "tabler-react/dist/Tabler.css";
@@ -9,6 +9,8 @@ import Wrapper from '../Components/Wrapper'
 
 export default function PanelClients() {
 
+    const [totalClients, setTotalClients] = useState(0)
+
     return (
         <>
 
@@ -17,9 +19,10 @@ export default function PanelClients() {
             <Wrapper />
             <Page.Content>
 
-                <Row className="title-button-block">
+                <div className="title-button-block">
                     <Col sm={7} md={9}>
                         <h1>Clientes</h1>
+                        <p>Total de Clientes: {totalClients}</p> 
                     </Col>
 
                     <Col sm={5} md={3}>
@@ -27,7 +30,7 @@ export default function PanelClients() {
                             Adicionar Cliente
                         </Button>
                     </Col>
-                </Row>
+                </div>
 
                 <Row>
                     <Col>

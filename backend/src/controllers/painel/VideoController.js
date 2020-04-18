@@ -5,9 +5,9 @@ module.exports = {
 
     try {
       const videos = await Video.findAll(); 
-      return response.json({'videos': videos});
+      return response.json(videos);
     } catch (error) {
-      return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados dos videos.'});
+      return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados dos vídeos.'});
     }
   },
   
@@ -18,7 +18,7 @@ module.exports = {
       const video = await Video.findByPk(id); 
       return response.json(video);
     } catch (error) {
-      return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados do video.'});
+      return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados do vídeo.'});
     }
   },
 
@@ -27,9 +27,9 @@ module.exports = {
 
     try {
       const video = await Video.create({ title, description, link, price, duration, photo });
-      return response.json({'video': video});
+      return response.json(video);
     } catch (error) {
-      return response.status(400).json({ auth: true, message: 'Não foi possível inserir o video.'});
+      return response.status(400).json({ auth: true, message: 'Não foi possível inserir o vídeo.'});
     }
   },
 
@@ -40,12 +40,12 @@ module.exports = {
     try {
       const video = await Video.findByPk(id);
       if (!video) {
-        return response.status(400).json({ auth: true, message: 'O video não foi encontrado.'});
+        return response.status(400).json({ auth: true, message: 'O vídeo não foi encontrado.'});
       }
       video.update({ title, description, link, price, duration, photo });
-      return response.json({ auth: true, message: 'O video foi atualizado!'});
+      return response.json({ auth: true, message: 'O vídeo foi atualizado!'});
     } catch (error) {
-      return response.status(400).json({ auth: true, message: 'Não foi possível atualizar o video.'});
+      return response.status(400).json({ auth: true, message: 'Não foi possível atualizar o vídeo.'});
     }
   },
 
@@ -55,12 +55,12 @@ module.exports = {
     try {
       const video = await Video.findByPk(id);
       if (!video) {
-        return response.status(400).json({ auth: true, message: 'O video não foi encontrado.'});
+        return response.status(400).json({ auth: true, message: 'O vídeo não foi encontrado.'});
       }
       video.destroy();
-      return response.json({ auth: true, message: 'O video foi deletado!'});
+      return response.json({ auth: true, message: 'O vídeo foi deletado!'});
     } catch (error) {
-      return response.status(400).json({ auth: true, message: 'Não foi possível deletar o video.'});
+      return response.status(400).json({ auth: true, message: 'Não foi possível deletar o vídeo.'});
     }
     
   }
