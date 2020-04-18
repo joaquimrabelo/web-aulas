@@ -175,7 +175,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.5rem;
         margin-bottom: .5rem;
     }
-    
+    /* Titlte List */
     .title-button-block {
         display: flex;
         justify-content: space-between;

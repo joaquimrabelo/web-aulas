@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 
 import Wrapper from '../../Components/Wrapper';
 import { Col, Row } from 'react-grid-system'; 
-/* import CourseForm from '../form.js'; */
 
 import { Site, Page, Card, Form, Button } from 'tabler-react';
 import "tabler-react/dist/Tabler.css";
@@ -25,7 +24,6 @@ export default function PanelNewCourse(props) {
     const [promo_price, setPromoPrice] = useState('');
 
     const history = useHistory();
-
 
     async function handleNewCourse(e) {
         e.preventDefault();
@@ -73,8 +71,6 @@ export default function PanelNewCourse(props) {
                     <Card.Body>
 
                         <Form onSubmit={handleNewCourse}>
-
-
                             <Row>
                                 <Col>
                                     <Form.Group label="Nome do Curso">
@@ -187,8 +183,6 @@ export default function PanelNewCourse(props) {
                                     </Form.Group>
                                 </Col>
                             </Row>
-
-
 
                             <Button.List className="buttons-card-footer-block" >
                                 <Button size="lg" pill outline color="secondary">Cancelar</Button>

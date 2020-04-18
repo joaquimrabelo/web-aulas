@@ -7,7 +7,7 @@ module.exports = {
 
     try {
       const courses = await Course.findAll(); 
-      return response.json({'courses': courses});
+      return response.json(courses);
     } catch (error) {
       return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados dos cursos.'});
     }
@@ -42,7 +42,7 @@ module.exports = {
       if (file) {
         course.addFiles(file, {ordem: 1});
       } */
-      return response.json({'course': course});
+      return response.json(course);
     } catch (error) {
       console.log(error)
       return response.status(400).json({ auth: true, message: 'Não foi possível inserir o curso.'});

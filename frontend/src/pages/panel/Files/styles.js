@@ -6,6 +6,6 @@ export const PanelFilesContainer = styled.div`
 
     h1 {
         font-size: 1.5rem;
-        padding: 1rem 0;
+        padding-top: 1rem;
     }
 ` ;

@@ -16,9 +16,11 @@ export default function PanelCourses(props) {
 
     const token = localStorage.getItem('painel-token') || false;
     const [courses, setCourses] = useState([]);
+    const [totalCourses, setTotalCourses] = useState(20)
 
     const history = useHistory();
     const location = useLocation();
+
 
     /* LIST ALL */
     async function getCourses() {
@@ -29,7 +31,7 @@ export default function PanelCourses(props) {
             });
 
             if (response.data) {
-                setCourses(response.data.courses)
+                setCourses(response.data)
             }
 
         } catch (error) {
@@ -114,10 +116,10 @@ export default function PanelCourses(props) {
                         </Col>
                     </Row> : '' }
                  
-                    <Row className="title-button-block">
+                    <div className="title-button-block">
                         <Col sm={7} md={9}>
                             <h1>Cursos</h1>
-                            {/* <p>Total de Cursos: {}</p> */}
+                            <p>Total de Cursos: {totalCourses}</p> 
                         </Col>
 
                         <Col sm={5} md={3}>
@@ -125,7 +127,7 @@ export default function PanelCourses(props) {
                                 Adicionar Curso
                             </Button>
                         </Col>
-                    </Row>
+                    </div>
 
 
                     <Row>

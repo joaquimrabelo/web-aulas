@@ -20,12 +20,17 @@ export default function Routes() {
 
     const Dashboard = lazy(() => import('./pages/panel/Dashboard'))
     const PanelLogin = lazy(() => import('./pages/panel/PanelLogin'))
+
     const PanelCourses = lazy(() => import('./pages/panel/Courses'))
     const PanelNewCourse = lazy(() => import('./pages/panel/Courses/NewCourse'))
     const PanelEditCourse = lazy(() => import('./pages/panel/Courses/EditCourse'))
+
     const PanelClients = lazy(() => import('./pages/panel/Clients'))
     const PanelVideos = lazy(() => import('./pages/panel/Videos'))
+
     const PanelFiles = lazy(() => import('./pages/panel/Files'))
+    const PanelNewFile = lazy(() => import('./pages/panel/Files/NewFile'))
+    const PanelEditFile = lazy(() => import('./pages/panel/Files/EditFile'))
 
     return (
         <BrowserRouter>
@@ -61,7 +66,11 @@ export default function Routes() {
                     <Route path="/painel/clientes" exact component={PanelClients}/>
                     
                     <Route path="/painel/videos" component={PanelVideos}/>
-                    <Route path="/painel/arquivos" component={PanelFiles}/>
+
+                    <Route path="/painel/arquivos" exact component={PanelFiles}/>
+                    <Route path="/painel/arquivos/add" component={PanelNewFile} />
+                    <Route path="/painel/arquivos/:id/edit" component={PanelEditFile} /> 
+
                 </Suspense>
                  
                 <Route path="*" component={Error404} />
