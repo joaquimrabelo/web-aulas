@@ -93,9 +93,6 @@ export default function PanelVideos() {
 
     }
 
-
-
-
     useEffect(() => {
         getVideos();
 
@@ -147,16 +144,24 @@ export default function PanelVideos() {
                                     <Card>
                                         <Card.Header>
                                             <Card.Title>
-                                                {video.name}
+                                                {video.title}
                                             </Card.Title>
                                             <Card.Options>
-                                                <Button outline color="primary" size="sm">
+                                                <Button outline color="primary" size="sm"
+                                                    onClick={(e) => handleEditVideo(video.id)}
+                                                >
                                                     Editar
                                                 </Button>
                                                 <Button outline color="secondary" size="sm" className="ml-2">
                                                     Desativar
                                                 </Button>
-                                                <Button outline color="danger" size="sm" className="ml-2" icon="trash" />
+                                                <Button outline 
+                                                    color="danger" 
+                                                    size="sm" 
+                                                    className="ml-2" 
+                                                    icon="trash" 
+                                                    onClick={(e) => handleDeleteVideo(video.id)}
+                                                />
 
                                             </Card.Options>
                                         </Card.Header>
