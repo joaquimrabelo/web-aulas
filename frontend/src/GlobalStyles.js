@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
     * {
@@ -11,26 +10,23 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         transition: all .25s ease-in ( .645, .045, .355, 1);
     }
-
     :root {
         --primary-color: #0c5a9a; 
         --neutral-color: #f5f1ed;
         --light-color: #f1f1f1;
-
+        --alert-color: #da2012;
         --box-shadow: 0 8px 20px 0 rgba(0,0,0,.1);
     }
     ::selection {
         color: #fff;
         background-color: var(--primary-color);
     }
-
     body {
         font: 400 16px Roboto, sans-serif;
         color: #666;
         background-color: #fff;
         -webkit-font-smoothing: antialised;
     }
-
     h1 {
         color: var(--primary-color);
         font-size: 2.5rem;
@@ -56,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
     form {
         width: 100%;
     }
-    form input {
+    .input-site {
         width: 100%;
         height: 54px;
         color: #333;
@@ -87,10 +83,8 @@ const GlobalStyle = createGlobalStyle`
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-
         @media(min-width: 600px) {
              padding: 50px;
-
         }
     }
     
@@ -107,7 +101,6 @@ const GlobalStyle = createGlobalStyle`
         border-top-width: .0625rem;
         border-bottom-width: calc(.2rem + .0625rem);
         text-decoration: none;
-
         &:hover {
             color:#fff;
         }
@@ -117,8 +110,7 @@ const GlobalStyle = createGlobalStyle`
         -webkit-transition: all .1s ease-in;
         transition: all .1s ease-in;
     }
-
-    .button {
+    .btn-site {
         width: 100%;
         height: 60px;
         background-color: var(--primary-color);
@@ -133,7 +125,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: 18px;
         line-height: 60px;
         transition: filter .2s;
-
         &:hover {
             filter: brightness(90%);
         }
@@ -147,7 +138,6 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         font-weight: 500;
         transition: opacity .2s;
-
         &:hover {
             opacity: .8;
         }
@@ -155,10 +145,62 @@ const GlobalStyle = createGlobalStyle`
     .clean-link svg {
         margin-right: 8px;
     }
-
     .clean-links-block {
         display: flex;
         justify-content: space-between;
+    }
+    
+    /* ==== Panel ==== */
+    .btn-panel {
+        width: 100%;
+        height: 60px;
+        background-color: var(--alert-color);
+        border: 0;
+        border-radius: 50px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 16px;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 60px;
+        transition: filter .2s;
+        &:hover {
+            filter: brightness(90%);
+        }
+    }
+    /* Card - New Item */
+    .title_pages {
+        font-size: 1.5rem;
+        margin-bottom: .5rem;
+    }
+    /* Titlte List */
+    .title-button-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    /* Edit - footer buttons */
+    .buttons-card-footer-block {
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid #ddd;
+    }
+
+    /* Modal */
+    .btn-modal {
+        font-size: 14px;
+        line-height: 50px;
+        height: 50px; 
+        width: 48%;
+        margin: 2px;
+        border: none;
+        border-radius: 50px;
+        background-color: var(--primary-color);
+        color: #fff;
+        font-weight: 500;
     }
 
 
@@ -168,6 +210,9 @@ const GlobalStyle = createGlobalStyle`
         }
         .clean-link {
             font-size: 18px;
+        }
+        .title-button-block {
+            margin-bottom: 0;
         }
     }
    

@@ -8,28 +8,15 @@ import { Container, Row, Col } from 'react-grid-system';
 export default function Forgot() {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    /* const [password, setPassword] = useState(''); */
 
     const history = useHistory();
 
     async function handleForgot(e) {
         e.preventDefault();
-        console.log("handle login")
-
-        /* try {
-            const response = await api.post('sessions', { id });
-
-            localStorage.setItem('ongId', id);
-            localStorage.setItem('ongName', response.data.name);
-
-            history.push('/profile');
-
-        } catch (error) {
-            alert('Falha no login, tente novamente.')
-        } */
-
+        console.log("handle forgot")
+        history.push('/')
     }
-
 
     return (
         <ForgotContainer>
@@ -47,13 +34,14 @@ export default function Forgot() {
 
                             <form onSubmit={handleForgot}>
                                 <input
+                                    className="input-site"
                                     placeholder="Seu email"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
                                 />
 
 
-                                <button className="button link button-depth" type="submit">Recuperar acesso</button>
+                                <button className="button btn-site link button-depth" type="submit">Recuperar acesso</button>
 
                             </form>
 

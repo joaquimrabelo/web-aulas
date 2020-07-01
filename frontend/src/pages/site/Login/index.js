@@ -16,18 +16,19 @@ export default function Login() {
         e.preventDefault();
         console.log("handle login")
 
-        /* try {
+       /*  try {
             const response = await api.post('sessions', { id });
-
+            
             localStorage.setItem('ongId', id);
             localStorage.setItem('ongName', response.data.name);
 
             history.push('/profile');
 
         } catch (error) {
+            console.log(error)
             alert('Falha no login, tente novamente.')
-        } */
-
+        }  
+ */
     }
 
 
@@ -47,17 +48,21 @@ export default function Login() {
                            
                             <form onSubmit={handleLogin}>
                                 <input
+                                    className="input-site"
                                     placeholder="Seu email"
                                     value={email}
+                                    type="email"
                                     onChange={e => setEmail(e.target.value)}
                                 />
                                 <input
+                                    className="input-site"
                                     placeholder="Sua senha"
                                     value={password}
+                                    type="password"
                                     onChange={e => setPassword(e.target.value)}
                                 />
                                 
-                                <button className="button link button-depth" type="submit">Entrar</button>
+                                <button className="button btn-site link button-depth" type="submit">Entrar</button>
 
                             </form>
 
@@ -80,8 +85,6 @@ export default function Login() {
                         
                     </Col>
 
-                    
-                    
                    
                 </Row>
             </Container>
