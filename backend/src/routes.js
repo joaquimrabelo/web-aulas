@@ -1,7 +1,7 @@
 const express = require('express');
 
 const SessionsController = require('./controllers/SessionsController');
-const checkAuthPainel = require('./services/checkAuthPainel');
+const checkAuthPainel = require('./middleware/checkAuthPainel');
 
 const PerfilController = require('./controllers/painel/PerfilController');
 

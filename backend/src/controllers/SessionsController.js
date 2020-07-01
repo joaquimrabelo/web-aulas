@@ -19,7 +19,9 @@ module.exports = {
 
     if (bcrypt.compareSync(password, user.password)) {
 
-      const token = jwt.sign({ id: user.id }, process.env.SECRET_PAINEL);
+      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_PAINEL, {
+        expiresIn: process.env.JWT_EXPIRES_PAINEL
+      });
 
       return response.json({ auth: true, token: token });
     }
