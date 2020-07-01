@@ -18,7 +18,7 @@ class Course extends Model {
     this.belongsToMany(models.videos, {
       foreignKey: 'course_id',
       through: 'courses_videos',
-      as: 'videos'
+      as: 'videos',
     });
     this.belongsToMany(models.files, {
       foreignKey: 'course_id',

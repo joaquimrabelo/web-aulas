@@ -2,6 +2,9 @@ const Course = require('../../models/course');
 const Video = require('../../models/video');
 const File = require('../../models/file');
 
+
+const ShowCourseService = require('../../services/ShowCourseService');
+
 module.exports = {
   async index(request, response) {
 
@@ -17,14 +20,12 @@ module.exports = {
     const { id } = request.params;
     
     try {
-      const course = await Course.findByPk(id, {
-        include: [
-          { association: 'videos' }, //, through: { attributes: ['ordem'] }
-          { association: 'files' },
-        ],
-      });
-      return response.json(course);
+      const showCourseService = new ShowCourseService();
+      const courseData = await showCourseService.execute(id);
+
+      return response.json(courseData);
     } catch (error) {
+      console.error(error);
       return response.status(400).json({ auth: true, message: 'Não foi possível recuperar dados do curso.'});
     }
   },
@@ -34,16 +35,9 @@ module.exports = {
 
     try {
       const course = await Course.create({ title, description, validity, price, promo_price, photo });
-      /* const video = await Video.findByPk(1);
-      const file = await File.findByPk(1);
-      if (video) {
-        course.addVideos(video, {ordem: 1});
-      }
-      if (file) {
-        course.addFiles(file, {ordem: 1});
-      } */
       return response.json({'course': course});
     } catch (error) {
+      console.log(error);
       return response.status(400).json({ auth: true, message: 'Não foi possível inserir o curso.'});
     }
   },
@@ -75,10 +69,23 @@ module.exports = {
       course.destroy();
       return response.json({ auth: true, message: 'O curso foi deletado!'});
     } catch (error) {
+      return response.status(400).json({ auth: true, message: 'Não foi possível deletar o curso.'});
+    }
+  },
+
+  async updateOrdem(request, response) {
+    const id = request.params.id;
+
+    try {
+      const course = await Course.findByPk(id);
+      if (!course) {
+        return response.status(400).json({ auth: true, message: 'O curso não foi encontrado.'});
+      }
+
+    } catch (error) {
       console.log(error);
       return response.status(400).json({ auth: true, message: 'Não foi possível deletar o curso.'});
     }
-    
-  }  
+  }
 
 }

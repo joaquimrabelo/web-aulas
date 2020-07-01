@@ -24,6 +24,7 @@ router.get('/cursos/:id', checkAuthPainel, CouseController.show);
 router.post('/cursos', checkAuthPainel, CouseController.store);
 router.put('/cursos/:id', checkAuthPainel, CouseController.update);
 router.delete('/cursos/:id', checkAuthPainel, CouseController.delete);
+router.put('/cursos/:id', checkAuthPainel, CouseController.updateOrdem);
 
 router.get('/videos', checkAuthPainel, VideoController.index);
 router.get('/videos/:id', checkAuthPainel, VideoController.show);
