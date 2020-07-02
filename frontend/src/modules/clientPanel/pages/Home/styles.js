@@ -33,7 +33,10 @@ export const HomeContainer = styled.div`
         .main-title {
             text-align: left;
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+                span {
+                    font-size: 1.5rem;
+                }
             }
         }
            
