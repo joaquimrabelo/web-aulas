@@ -1,8 +1,8 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import "tabler-react/dist/Tabler.css";
-import { Site } from 'tabler-react';
+import { Site, Nav } from 'tabler-react';
 
 export default function Wrapper() {
 
@@ -29,8 +29,8 @@ export default function Wrapper() {
                         name: "Carolina",
                         description: "Administrador",
                         options: [
-                            { icon: "user", value: "Meu perfil", to: "/perfil" },
-                            { icon: "settings", value: "Configurações", to: "/settings" },
+                            { icon: "user", value: "Meu perfil", to: "/perfil", LinkComponent: Link },
+                            { icon: "settings", value: "Configurações", to: "/settings", LinkComponent: Link },
                             "divider",
                             { icon: "log-out", value: "Sair", onClick: () => handleLogout() },
                         ]
@@ -44,11 +44,11 @@ export default function Wrapper() {
             navProps={
                 {
                     itemsObjects: [
-                        { value: "Home", icon: "home", to: "/painel" },
-                        { value: "Clientes", icon: "users", to: "/painel/clientes" },
-                        { value: "Cursos", icon: "airplay", to: "/painel/cursos" },
-                        { value: "Vídeos", icon: "video", to: "/painel/videos" },
-                        { value: "Arquivos", icon: "share", to: "/painel/arquivos" },
+                        { value: "Home", icon: "home", to: "/painel", LinkComponent: Link },
+                        { value: "Clientes", icon: "users", to: "/painel/clientes", LinkComponent: Link },
+                        { value: "Cursos", icon: "airplay", to: "/painel/cursos", LinkComponent: Link },
+                        { value: "Vídeos", icon: "video", to: "/painel/videos", LinkComponent: Link },
+                        { value: "Arquivos", icon: "share", to: "/painel/arquivos", LinkComponent: Link },
                     ]
                 }
             }
