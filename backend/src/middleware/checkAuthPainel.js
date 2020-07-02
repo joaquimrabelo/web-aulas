@@ -9,7 +9,7 @@ module.exports = (request, response, next) => {
     if (!token) 
         return response.status(401).send({ auth: false, message: 'Token não informado.' }); 
     
-    verify(token, process.env.SECRET_PAINEL, function(err, decoded) { 
+    verify(token, process.env.JWT_SECRET_PAINEL, function(err, decoded) { 
         if (err) 
             return response.status(500).send({ auth: false, message: 'Token inválido.' }); 
         
