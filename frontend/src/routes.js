@@ -5,35 +5,35 @@ import {
     Switch
 } from 'react-router-dom';
 
-import Loading from '../src/pages/loading'
-import Error404 from './pages/panel/404';
+import Loading from '../src/components/loading'
+import Error404 from './modules/adminPanel/pages/404';
 
 import GlobalStyle from './GlobalStyles';
 
 export default function Routes() {
 
-    const  Home = lazy(() => import('./pages/site/Home'));
-    const  Login = lazy(() => import('./pages/site/Login'));
-    const  Register = lazy(() => import('./pages/site/Register'));
-    const  Forgot = lazy(() => import('./pages/site/Forgot'));
-    const  Courses = lazy(() => import('./pages/site/Courses'));
+    const  Home = lazy(() => import('./modules/clientPanel/pages/Home'));
+    const  Login = lazy(() => import('./modules/clientPanel/pages/Login'));
+    const  Register = lazy(() => import('./modules/clientPanel/pages/Register'));
+    const  Forgot = lazy(() => import('./modules/clientPanel/pages/Forgot'));
+    const  Courses = lazy(() => import('./modules/clientPanel/pages/Courses'));
 
-    const Dashboard = lazy(() => import('./pages/panel/Dashboard'))
-    const PanelLogin = lazy(() => import('./pages/panel/PanelLogin'))
+    const Dashboard = lazy(() => import('./modules/adminPanel/pages/Dashboard'))
+    const PanelLogin = lazy(() => import('./modules/adminPanel/pages/PanelLogin'))
 
-    const PanelCourses = lazy(() => import('./pages/panel/Courses'))
-    const PanelNewCourse = lazy(() => import('./pages/panel/Courses/NewCourse'))
-    const PanelEditCourse = lazy(() => import('./pages/panel/Courses/EditCourse'))
+    const PanelCourses = lazy(() => import('./modules/adminPanel/pages/Courses'))
+    const PanelNewCourse = lazy(() => import('./modules/adminPanel/pages/Courses/NewCourse'))
+    const PanelEditCourse = lazy(() => import('./modules/adminPanel/pages/Courses/EditCourse'))
 
-    const PanelClients = lazy(() => import('./pages/panel/Clients'))
+    const PanelClients = lazy(() => import('./modules/adminPanel/pages/Clients'))
 
-    const PanelVideos = lazy(() => import('./pages/panel/Videos'))
-    const PanelNewVideo = lazy(() => import('./pages/panel/Videos/NewVideo'))
-    const PanelEditVideo = lazy(() => import('./pages/panel/Videos/EditVideo'))
+    const PanelVideos = lazy(() => import('./modules/adminPanel/pages/Videos'))
+    const PanelNewVideo = lazy(() => import('./modules/adminPanel/pages/Videos/NewVideo'))
+    const PanelEditVideo = lazy(() => import('./modules/adminPanel/pages/Videos/EditVideo'))
 
-    const PanelFiles = lazy(() => import('./pages/panel/Files'))
-    const PanelNewFile = lazy(() => import('./pages/panel/Files/NewFile'))
-    const PanelEditFile = lazy(() => import('./pages/panel/Files/EditFile'))
+    const PanelFiles = lazy(() => import('./modules/adminPanel/pages/Files'))
+    const PanelNewFile = lazy(() => import('./modules/adminPanel/pages/Files/NewFile'))
+    const PanelEditFile = lazy(() => import('./modules/adminPanel/pages/Files/EditFile'))
 
     return (
         <BrowserRouter>
@@ -47,7 +47,7 @@ export default function Routes() {
                     <Route path="/esqueci-senha" component={Forgot}/>
                     <Route path="/cursos" component={Courses}/>
 
-                {/* Panel  */}
+                    {/* Panel  */}
                               
                     <Route path="/painel" exact component={Dashboard}/>
                 
