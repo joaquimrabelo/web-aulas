@@ -1,0 +1,32 @@
+{
+  "/cursos": {
+    "get": {
+      "description": "Lista cursos cadastrados",
+      "parameters": [],
+      "responses": {
+        "200": {
+          "description": "some desc"
+        }
+      }
+    }
+  },
+  "/cursos/:id": {
+    "get": {
+      "description": "Mostra detalhes de um curso",
+      "parameters": [
+        {
+          "in": "query",
+          "name": "some name",
+          "description": "desc",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "some desc"
+        }
+      }
+    }
+  }
+}
