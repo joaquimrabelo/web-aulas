@@ -1,21 +1,14 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+import { useAuth } from '../../hooks/auth';
 
 import "tabler-react/dist/Tabler.css";
 import { Site } from 'tabler-react';
 
 export default function Wrapper() {
 
-    const history = useHistory();
-    const token = localStorage.getItem('painel-token') || false;
-    if (!token) {
-        //history.push('/painel/login');
-    }
-
-    function handleLogout(e) {
-        localStorage.removeItem('painel-token')
-        history.push('/painel/login');
-    }
+    const { signOut } = useAuth();
 
     return (
         <>  
@@ -32,7 +25,7 @@ export default function Wrapper() {
                             { icon: "user", value: "Meu perfil", to: "/perfil", LinkComponent: Link },
                             { icon: "settings", value: "Configurações", to: "/settings", LinkComponent: Link },
                             "divider",
-                            { icon: "log-out", value: "Sair", onClick: () => handleLogout() },
+                            { icon: "log-out", value: "Sair", onClick: () => signOut() },
                         ]
                     },
                     imageURL: "http://w42.com.br/assets/site/img/w42-logo.svg",

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+
+import { useAuth } from '../../hooks/auth';
 
 import { DashboardContainer } from './styles.js';
 import { Row, Col } from 'react-grid-system';
@@ -11,14 +12,12 @@ import api from '../../../../services/api';
 
 export default function Dashboard() {
 
-    const token = localStorage.getItem('painel-token') || false;
+    const { token } = useAuth();
 
     const [courses, setCourses] = useState(0);
     const [clients, setClients] = useState(0);
     const [videos, setVideos] = useState(0);
     const [files, setFiles] = useState(0);
-
-   /*  const history = useHistory(); */
 
     async function getProfile () {
 

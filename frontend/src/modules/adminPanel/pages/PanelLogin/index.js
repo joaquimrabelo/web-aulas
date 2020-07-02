@@ -4,34 +4,26 @@ import { useHistory } from 'react-router-dom';
 import { PanelContainer } from './styles.js';
 import { Container, Row, Col } from 'react-grid-system';
 
-import api from '../../../../services/api';
+import { useAuth } from '../../hooks/auth';
 
 export default function PanelLogin() {
 
     const history = useHistory();
-    const token = localStorage.getItem('painel-token') || false;
-    if(token) {
-        history.push('/painel');
-    }
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState(false);
     const [loginErrorMessage, setLoginErrorMessage] = useState('');
 
+    const { signIn } = useAuth();
+
     async function handleLogin(e) {
         e.preventDefault();
 
         try {
-            const response = await api.post('painel/login', { email, password });
-
-            if (response.data.auth) {
-                localStorage.setItem('painel-token', response.data.token)
-                history.push('/painel');
-            }   
+            await signIn({ email, password });
 
         } catch (error) {
-
             if(error.response && error.response.data) {
                 setLoginError(true);
                 setLoginErrorMessage(error.response.data.message)
