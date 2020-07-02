@@ -23,7 +23,13 @@ module.exports = {
         expiresIn: process.env.JWT_EXPIRES_PAINEL
       });
 
-      return response.json({ auth: true, token: token });
+      delete user.password;
+
+      return response.json({ auth: true, token, user: {
+        id: user.id, 
+        name: user.name, 
+        email: user.email
+      }});
     }
 
     return response.status(401).json({ auth: false, message: 'Senha incorreta!' });
