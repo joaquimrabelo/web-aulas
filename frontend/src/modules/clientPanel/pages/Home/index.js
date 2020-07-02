@@ -18,8 +18,8 @@ export default function Home() {
                     <Col sm={6} >
                         <Row>
                             <Col className="main-title">
-                                <h1><span>Plataforma de</span> Cursos Online </h1>
-                                <p>Texto sobre a Plataforma de Cursos Online</p>
+                                <h1><span>Plataforma de Cursos Online</span> <br />Nome do Cliente </h1>
+                                
                             </Col>
                             
                         </Row>

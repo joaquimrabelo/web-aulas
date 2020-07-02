@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { LoginContainer } from './styles.js';
-import { FiLogIn, FiArrowLeft } from 'react-icons/fi';
+import { FiLogIn, FiArrowLeft, FiLock } from 'react-icons/fi';
 import { Container, Row, Col } from 'react-grid-system';
 
 export default function Login() {
@@ -71,7 +71,7 @@ export default function Login() {
                         <div className="clean-links-block">
                            
                             <Link to="/esqueci-senha" className="clean-link">
-                                <FiArrowLeft className="icon" />
+                                <FiLock className="icon" />
                                 Esqueci minha senha
                             </Link>
                         

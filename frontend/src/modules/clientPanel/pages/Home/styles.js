@@ -9,7 +9,6 @@ export const HomeContainer = styled.div`
     text-align: center;
     overflow: hidden;
     
-
     img {
         margin-top: 2rem;
     }
@@ -33,6 +32,9 @@ export const HomeContainer = styled.div`
     @media(min-width: 600px) {
         .main-title {
             text-align: left;
+            h1 {
+                font-size: 2rem;
+            }
         }
            
         img {
