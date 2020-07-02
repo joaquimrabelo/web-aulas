@@ -1,30 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const SessionsController = require('../controllers/painel/SessionsController');
-const checkAuthPainel = require('../middleware/checkAuthPainel');
-
-const PerfilController = require('../controllers/painel/PerfilController');
-
+const publicRoutes = require('./public.routes');
 const courseRoutes = require('./courses.routes');
 const videoRoutes = require('./videos.routes');
 const fileRoutes = require('./files.routes');
+const profileRoutes = require('./profile.routes');
+const authenticateRoutes = require('./authenticate.routes');
 
-
-router.get('/', (request, response) => {
-  response.json({'api': 'API Web Aulas'});
-});
-
-/* Rotas painel */
-
+router.use(publicRoutes);
 router.use(courseRoutes);
 router.use(videoRoutes);
 router.use(fileRoutes);
-
-router.post('/painel/login', SessionsController.doPainelLogin);
-router.get('/painel/perfil', checkAuthPainel, PerfilController.index);
-
-
-/* Rotas site */
+router.use(profileRoutes);
+router.use(authenticateRoutes);
 
 module.exports = router;
